@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+    <!-- Phosphor Icons - Web Components CDN -->
+    <script type="module" src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/phosphor-icons.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              slate: {
+                950: "#0f172a",
+              },
+              brand: {
+                50: "#f4f7ff",
+                100: "#e4eaff",
+                500: "#4f46e5",
+                600: "#4338ca",
+                950: "#0f1237",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui"],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Ensure Phosphor Icons display correctly */
+      ph-chart-pie-slice, ph-eye, ph-tray-arrow-down, ph-gift, ph-megaphone,
+      ph-identification-badge, ph-chart-line-up, ph-dice-five, ph-hand-arrow-down,
+      ph-gear, ph-magnifying-glass, ph-sun, ph-bell, ph-calendar-check, ph-wallet,
+      ph-faders, ph-shield-checkered, ph-currency-circle-dollar, ph-arrow-circle-down,
+      ph-arrow-circle-up, ph-arrow-up-right, ph-arrow-down-left {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[#f9f9fa] font-sans text-slate-900">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside
+        class="hidden w-[212px] flex-shrink-0 flex-col gap-2 border-r border-[rgba(0,0,0,0.1)] bg-white p-4 lg:flex"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-2 p-2">
+          <p class="text-2xl font-bold text-black">
+            <span class="font-bold">Bet</span><span class="font-normal">studio</span>
+          </p>
+        </div>
+        <div class="h-[1px] w-full bg-[rgba(0,0,0,0.1)]"></div>
+
+        <!-- Dashboards Section -->
+        <div class="flex flex-col gap-1">
+          <p class="px-3 py-1 text-sm text-[rgba(0,0,0,0.4)]">Dashboards</p>
+          <a
+            href="index.html"
+            class="flex items-center gap-2 rounded-lg bg-[rgba(0,0,0,0.04)] px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.06)]"
+          >
+            <ph-chart-pie-slice class="text-lg" weight="regular"></ph-chart-pie-slice>
+            <span>Statistics</span>
+          </a>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-eye class="text-lg" weight="regular"></ph-eye>
+            <span>Overview</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-tray-arrow-down class="text-lg" weight="regular"></ph-tray-arrow-down>
+            <span>Retention</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-gift class="text-lg" weight="regular"></ph-gift>
+            <span>Bonus</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-megaphone class="text-lg" weight="regular"></ph-megaphone>
+            <span>Deposit Trigger</span>
+          </button>
+        </div>
+
+        <!-- Pages Section -->
+        <div class="flex flex-col gap-1">
+          <p class="px-3 py-1 text-sm text-[rgba(0,0,0,0.4)]">Pages</p>
+          <a
+            href="user-profile.html"
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-identification-badge class="text-lg" weight="regular"></ph-identification-badge>
+            <span>User Profile</span>
+          </a>
+          <a
+            href="user-profile.html"
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <span class="w-5 h-5 rounded border border-dashed border-[rgba(0,0,0,0.8)] bg-[rgba(0,0,0,0.04)]"></span>
+            <span>My Players</span>
+          </a>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <span class="w-5 h-5 rounded border border-dashed border-[rgba(0,0,0,0.8)] bg-[rgba(0,0,0,0.04)]"></span>
+            <span>Reff. Commission</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <span class="w-5 h-5 rounded border border-dashed border-[rgba(0,0,0,0.8)] bg-[rgba(0,0,0,0.04)]"></span>
+            <span>Bulk Players</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <span class="w-5 h-5 rounded border border-dashed border-[rgba(0,0,0,0.8)] bg-[rgba(0,0,0,0.04)]"></span>
+            <span>Create Players</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-chart-line-up class="text-lg" weight="regular"></ph-chart-line-up>
+            <span>Reports</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-dice-five class="text-lg" weight="regular"></ph-dice-five>
+            <span>Games</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-gift class="text-lg" weight="regular"></ph-gift>
+            <span>Bonus</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-hand-arrow-down class="text-lg" weight="regular"></ph-hand-arrow-down>
+            <span>Withdrawal</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-megaphone class="text-lg" weight="regular"></ph-megaphone>
+            <span>Promotions</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-gear class="text-lg" weight="regular"></ph-gear>
+            <span>Settings</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <div class="flex flex-1 flex-col">
+        <!-- Header -->
+        <header
+          class="flex items-center justify-between border-b border-[rgba(0,0,0,0.1)] bg-white px-7 py-5"
+          style="border-bottom-width: 0.5px;"
+        >
+          <!-- Breadcrumb -->
+          <div class="flex items-center gap-2">
+            <div class="flex items-center gap-0">
+              <a href="index.html" class="px-3 py-1 rounded-2xl text-sm leading-5 text-[rgba(0,0,0,0.4)] hover:bg-slate-50 transition-colors">
+                Dashboards
+              </a>
+              <span class="text-sm text-[rgba(0,0,0,0.1)] px-1">/</span>
+              <a href="index.html" class="px-3 py-1 rounded-2xl text-sm leading-5 text-black bg-[rgba(0,0,0,0.04)] hover:bg-[rgba(0,0,0,0.06)] transition-colors">
+                Statistics
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Section: Search, Icons, Avatar -->
+          <div class="flex items-center gap-5">
+            <!-- Search Input -->
+            <div class="flex items-center gap-2 bg-[rgba(0,0,0,0.04)] px-2 py-1 rounded-md w-40 overflow-hidden">
+              <div class="flex items-center gap-2 flex-1">
+                <ph-magnifying-glass class="text-base text-[rgba(0,0,0,0.2)]" weight="regular"></ph-magnifying-glass>
+                <input 
+                  type="text" 
+                  placeholder="Search" 
+                  class="flex-1 bg-transparent text-sm text-[rgba(0,0,0,0.2)] placeholder-[rgba(0,0,0,0.2)] outline-none border-none"
+                />
+              </div>
+              <div class="border border-[rgba(0,0,0,0.1)] rounded px-1 text-xs text-[rgba(0,0,0,0.2)] flex-shrink-0" style="border-width: 0.5px;">/</div>
+            </div>
+
+            <!-- Icon Buttons -->
+            <div class="flex items-center gap-2">
+              <button class="w-7 h-7 flex items-center justify-center rounded-2xl hover:bg-slate-100 transition-colors min-w-[28px] min-h-[28px]">
+                <ph-sun class="text-base text-gray-700" weight="regular"></ph-sun>
+              </button>
+              <button class="w-7 h-7 flex items-center justify-center rounded-2xl hover:bg-slate-100 transition-colors min-w-[28px] min-h-[28px]">
+                <ph-bell class="text-base text-gray-700" weight="regular"></ph-bell>
+              </button>
+              <div class="w-6 h-6 rounded-full bg-[rgba(0,0,0,0.04)] overflow-hidden flex-shrink-0">
+                <img
+                  class="w-full h-full object-cover"
+                  src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80"
+                  alt="Avatar"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Content body -->
+        <main class="flex flex-1 flex-col gap-6 bg-[#f9f9fa] p-10">
+          <!-- Tabs Section -->
+          <section class="flex items-center gap-4">
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors">
+              <ph-calendar-check class="text-base" weight="regular"></ph-calendar-check>
+              <span>Nov 02, 2025 - Nov 05, 2025</span>
+            </button>
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors">
+              <ph-calendar-check class="text-base" weight="regular"></ph-calendar-check>
+              <span>Date Today</span>
+            </button>
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors">
+              <ph-wallet class="text-base" weight="regular"></ph-wallet>
+              <span>Wallet type filter Bonus</span>
+            </button>
+            <div class="flex items-center gap-0 border-b border-[rgba(0,0,0,0.1)]">
+              <button class="px-4 py-2 text-sm font-medium border-b-2 border-black text-black">
+                Statistics
+              </button>
+              <button class="px-4 py-2 text-sm font-medium text-[rgba(0,0,0,0.4)] hover:text-black transition-colors">
+                Accounting
+              </button>
+            </div>
+          </section>
+
+          <!-- KPI cards -->
+          <section class="grid gap-4 grid-cols-4">
+            <!-- Registered Users -->
+            <article class="rounded-xl border-4 border-[#fdfdfd] bg-white p-8 shadow-sm">
+              <div class="flex items-center justify-between gap-8">
+                <div class="flex items-center gap-4">
+                  <div class="bg-[#f0f7ff] p-2.5 rounded-full flex items-center justify-center">
+                    <ph-shield-checkered class="text-2xl text-blue-600" weight="regular"></ph-shield-checkered>
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold text-[#222]">2,45,000</p>
+                    <p class="text-lg font-medium text-[#666]">Registered Users</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center">
+                  <ph-arrow-up-right class="text-xl text-[#00b69b]" weight="regular"></ph-arrow-up-right>
+                  <p class="text-lg font-semibold text-[#00b69b]">1.3%</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Total Bonus -->
+            <article class="rounded-xl border-4 border-[#fdfdfd] bg-white p-8 shadow-sm">
+              <div class="flex items-center justify-between gap-8">
+                <div class="flex items-center gap-4">
+                  <div class="bg-[#f0f7ff] p-2.5 rounded-full flex items-center justify-center">
+                    <ph-currency-circle-dollar class="text-2xl text-blue-600" weight="regular"></ph-currency-circle-dollar>
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold text-[#222]">12,50,340</p>
+                    <p class="text-lg font-medium text-[#666]">Total Bonus</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center">
+                  <ph-arrow-up-right class="text-xl text-[#00b69b]" weight="regular"></ph-arrow-up-right>
+                  <p class="text-lg font-semibold text-[#00b69b]">1.3%</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Total Deposit -->
+            <article class="rounded-xl border-4 border-[#fdfdfd] bg-white p-8 shadow-sm">
+              <div class="flex items-center justify-between gap-8">
+                <div class="flex items-center gap-4">
+                  <div class="bg-[#f0f7ff] p-2.5 rounded-full flex items-center justify-center">
+                    <ph-arrow-circle-down class="text-2xl text-blue-600" weight="regular"></ph-arrow-circle-down>
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold text-[#222]">1,44,12,000</p>
+                    <p class="text-lg font-medium text-[#666]">Total Deposit</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center">
+                  <ph-arrow-down-left class="text-xl text-[#ef4444]" weight="regular"></ph-arrow-down-left>
+                  <p class="text-lg font-semibold text-[#ef4444]">1.3%</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Total Withdrawal -->
+            <article class="rounded-xl border-4 border-[#fdfdfd] bg-white p-8 shadow-sm">
+              <div class="flex items-center justify-between gap-8">
+                <div class="flex items-center gap-4">
+                  <div class="bg-[#f0f7ff] p-2.5 rounded-full flex items-center justify-center">
+                    <ph-arrow-circle-up class="text-2xl text-blue-600" weight="regular"></ph-arrow-circle-up>
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold text-[#222]">88,12,000</p>
+                    <p class="text-lg font-medium text-[#666]">Total Withdrawal</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center">
+                  <ph-arrow-up-right class="text-xl text-[#00b69b]" weight="regular"></ph-arrow-up-right>
+                  <p class="text-lg font-semibold text-[#00b69b]">1.3%</p>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- Charts and Tables Section -->
+          <section class="grid gap-6 grid-cols-3">
+            <!-- GGR Chart Block -->
+            <article class="col-span-2 rounded-lg bg-[#f9f9fa] p-6">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-4">
+                  <button class="text-sm font-semibold text-black">GGR</button>
+                  <button class="text-sm text-[rgba(0,0,0,0.4)] hover:text-black">Total GGR</button>
+                  <span class="text-sm text-[rgba(0,0,0,0.2)]">|</span>
+                  <div class="flex items-center gap-1 px-1 py-0.5 rounded">
+                    <span class="w-4 h-4 rounded-full bg-black"></span>
+                    <span class="text-xs text-black">This year</span>
+                  </div>
+                  <div class="flex items-center gap-1 px-1 py-0.5 rounded">
+                    <span class="w-4 h-4 rounded-full bg-blue-400"></span>
+                    <span class="text-xs text-black">Last year</span>
+                  </div>
+                  <button class="flex items-center gap-1 px-1 py-0.5 rounded">
+                    <ph-faders class="text-base" weight="regular"></ph-faders>
+                    <span class="text-xs text-black">Filter By</span>
+                  </button>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg p-4">
+                <canvas id="ggrChart" class="h-64"></canvas>
+              </div>
+            </article>
+
+            <!-- Gross Gaming Revenue Table -->
+            <article class="rounded-lg border border-[#e4e4e7] bg-white shadow-sm">
+              <div class="px-7 py-6 border-b border-[#e4e4e7]">
+                <h3 class="text-2xl font-semibold text-black">Gross Gaming Revenue</h3>
+              </div>
+              <div class="p-6">
+                <div class="space-y-0">
+                  <div class="flex items-center justify-between py-4 border-b border-[rgba(255,255,255,0.04)]">
+                    <div>
+                      <p class="text-sm font-medium text-black">Total GGR</p>
+                      <p class="text-sm text-[#71717a]">5 November 2025</p>
+                    </div>
+                    <p class="text-sm font-bold text-[#14ae5c]">3,22,708.37</p>
+                  </div>
+                  <div class="flex items-center justify-between py-4 border-b border-[rgba(255,255,255,0.04)]">
+                    <div>
+                      <p class="text-sm font-medium text-black">Casino GGR</p>
+                      <p class="text-sm text-[#71717a]">5 November 2025</p>
+                    </div>
+                    <p class="text-sm font-medium text-black">3,091.05</p>
+                  </div>
+                  <div class="flex items-center justify-between py-4 border-b border-[rgba(255,255,255,0.04)]">
+                    <div>
+                      <p class="text-sm font-medium text-black">Sports GGR</p>
+                      <p class="text-sm text-[#71717a]">5 November 2025</p>
+                    </div>
+                    <p class="text-sm font-medium text-black">1,422.04</p>
+                  </div>
+                  <div class="flex items-center justify-between py-4">
+                    <div>
+                      <p class="text-sm font-medium text-black">Matka GGR</p>
+                      <p class="text-sm text-[#71717a]">5 November 2025</p>
+                    </div>
+                    <p class="text-sm font-medium text-[#f24822]">-350</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- NGR Chart and Table Section -->
+          <section class="grid gap-6 grid-cols-3">
+            <!-- NGR Chart Block -->
+            <article class="col-span-2 rounded-lg bg-[#f9f9fa] p-6">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-4">
+                  <button class="text-sm font-semibold text-black">NGR</button>
+                  <button class="text-sm text-[rgba(0,0,0,0.4)] hover:text-black">Total NGR</button>
+                  <span class="text-sm text-[rgba(0,0,0,0.2)]">|</span>
+                  <div class="flex items-center gap-1 px-1 py-0.5 rounded">
+                    <span class="w-4 h-4 rounded-full bg-black"></span>
+                    <span class="text-xs text-black">This year</span>
+                  </div>
+                  <div class="flex items-center gap-1 px-1 py-0.5 rounded">
+                    <span class="w-4 h-4 rounded-full bg-blue-400"></span>
+                    <span class="text-xs text-black">Last year</span>
+                  </div>
+                  <button class="flex items-center gap-1 px-1 py-0.5 rounded">
+                    <ph-faders class="text-base" weight="regular"></ph-faders>
+                    <span class="text-xs text-black">Filter By</span>
+                  </button>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg p-4">
+                <canvas id="ngrChart" class="h-64"></canvas>
+              </div>
+            </article>
+
+            <!-- Net Gaming Revenue Table -->
+            <article class="rounded-lg border border-[#e4e4e7] bg-white shadow-sm">
+              <div class="px-7 py-6 border-b border-[#e4e4e7]">
+                <h3 class="text-2xl font-semibold text-black">Net Gaming Revenue</h3>
+              </div>
+              <div class="p-6">
+                <div class="space-y-0">
+                  <div class="flex items-center justify-between py-4 border-b border-[rgba(255,255,255,0.04)]">
+                    <div>
+                      <p class="text-sm font-medium text-black">Total NGR</p>
+                      <p class="text-sm text-[#71717a]">5 November 2025</p>
+                    </div>
+                    <p class="text-sm font-bold text-[#14ae5c]">3,22,708.37</p>
+                  </div>
+                  <div class="flex items-center justify-between py-4 border-b border-[rgba(255,255,255,0.04)]">
+                    <div>
+                      <p class="text-sm font-medium text-black">Net Float</p>
+                      <p class="text-sm text-[#71717a]">5 November 2025</p>
+                    </div>
+                    <p class="text-sm font-medium text-black">3,091.05</p>
+                  </div>
+                  <div class="flex items-center justify-between py-4">
+                    <div>
+                      <p class="text-sm font-medium text-black">PGS Net Float</p>
+                      <p class="text-sm text-[#71717a]">5 November 2025</p>
+                    </div>
+                    <p class="text-sm font-medium text-black">1,422.04</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      // GGR Chart
+      const ggrCtx = document.getElementById("ggrChart");
+      if (ggrCtx) {
+        new Chart(ggrCtx, {
+          type: "line",
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+            datasets: [
+              {
+                label: "This year",
+                data: [12000, 19000, 15000, 25000, 22000, 30000, 28000],
+                borderColor: "#000000",
+                backgroundColor: "rgba(0,0,0,0.1)",
+                fill: true,
+                tension: 0.4,
+              },
+              {
+                label: "Last year",
+                data: [10000, 15000, 12000, 20000, 18000, 25000, 23000],
+                borderColor: "#60a5fa",
+                borderDash: [5, 5],
+                fill: false,
+                tension: 0.4,
+              },
+            ],
+          },
+          options: {
+            plugins: { legend: { display: false } },
+            scales: {
+              y: { 
+                beginAtZero: true, 
+                grid: { color: "#f1f5f9" },
+                ticks: {
+                  callback: function(value) {
+                    if (value === 0) return "0";
+                    if (value === 10000) return "10K";
+                    if (value === 20000) return "20K";
+                    if (value === 30000) return "30K";
+                    return value;
+                  }
+                }
+              },
+              x: { grid: { display: false } },
+            },
+          },
+        });
+      }
+
+      // NGR Chart
+      const ngrCtx = document.getElementById("ngrChart");
+      if (ngrCtx) {
+        new Chart(ngrCtx, {
+          type: "line",
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+            datasets: [
+              {
+                label: "This year",
+                data: [10000, 16000, 13000, 22000, 20000, 28000, 26000],
+                borderColor: "#000000",
+                backgroundColor: "rgba(0,0,0,0.1)",
+                fill: true,
+                tension: 0.4,
+              },
+              {
+                label: "Last year",
+                data: [8000, 12000, 10000, 18000, 16000, 23000, 21000],
+                borderColor: "#60a5fa",
+                borderDash: [5, 5],
+                fill: false,
+                tension: 0.4,
+              },
+            ],
+          },
+          options: {
+            plugins: { legend: { display: false } },
+            scales: {
+              y: { 
+                beginAtZero: true, 
+                grid: { color: "#f1f5f9" },
+                ticks: {
+                  callback: function(value) {
+                    if (value === 0) return "0";
+                    if (value === 10000) return "10K";
+                    if (value === 20000) return "20K";
+                    if (value === 30000) return "30K";
+                    return value;
+                  }
+                }
+              },
+              x: { grid: { display: false } },
+            },
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - Transactions History</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <!-- Phosphor Icons - Web Components CDN -->
+    <script type="module" src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/phosphor-icons.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              slate: {
+                950: "#0f172a",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui"],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Ensure Phosphor Icons display correctly */
+      ph-chart-pie-slice, ph-eye, ph-tray-arrow-down, ph-gift, ph-megaphone,
+      ph-identification-badge, ph-chart-line-up, ph-dice-five, ph-hand-arrow-down,
+      ph-gear, ph-magnifying-glass, ph-sun, ph-bell, ph-calendar-check, ph-plus,
+      ph-calendar-alt, ph-cardholder, ph-prohibit, ph-wrench, ph-note-pencil,
+      ph-arrow-line-right {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white font-sans text-slate-900">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside
+        class="hidden w-[212px] flex-shrink-0 flex-col gap-2 border-r border-[rgba(0,0,0,0.1)] bg-white p-4 lg:flex"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-2 p-2">
+          <p class="text-2xl font-bold text-black">
+            <span class="font-bold">Bet</span><span class="font-normal">studio</span>
+          </p>
+        </div>
+        <div class="h-[1px] w-full bg-[rgba(0,0,0,0.1)]"></div>
+
+        <!-- Dashboards Section -->
+        <div class="flex flex-col gap-1">
+          <p class="px-3 py-1 text-sm text-[rgba(0,0,0,0.4)]">Dashboards</p>
+          <a
+            href="index.html"
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-chart-pie-slice class="text-lg" weight="regular"></ph-chart-pie-slice>
+            <span>Statistics</span>
+          </a>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-eye class="text-lg" weight="regular"></ph-eye>
+            <span>Overview</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-tray-arrow-down class="text-lg" weight="regular"></ph-tray-arrow-down>
+            <span>Retention</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-gift class="text-lg" weight="regular"></ph-gift>
+            <span>Bonus</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-megaphone class="text-lg" weight="regular"></ph-megaphone>
+            <span>Deposit Trigger</span>
+          </button>
+        </div>
+
+        <!-- Pages Section -->
+        <div class="flex flex-col gap-1">
+          <p class="px-3 py-1 text-sm text-[rgba(0,0,0,0.4)]">Pages</p>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-identification-badge class="text-lg" weight="regular"></ph-identification-badge>
+            <span>User Profile</span>
+          </button>
+          <a
+            href="user-profile.html"
+            class="flex items-center gap-2 rounded-lg bg-[rgba(0,0,0,0.04)] px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.06)]"
+          >
+            <span class="w-5 h-5 rounded border border-dashed border-[rgba(0,0,0,0.8)] bg-[rgba(0,0,0,0.04)]"></span>
+            <span>My Players</span>
+          </a>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <span class="w-5 h-5 rounded border border-dashed border-[rgba(0,0,0,0.8)] bg-[rgba(0,0,0,0.04)]"></span>
+            <span>Reff. Commission</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <span class="w-5 h-5 rounded border border-dashed border-[rgba(0,0,0,0.8)] bg-[rgba(0,0,0,0.04)]"></span>
+            <span>Bulk Players</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <span class="w-5 h-5 rounded border border-dashed border-[rgba(0,0,0,0.8)] bg-[rgba(0,0,0,0.04)]"></span>
+            <span>Create Players</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-chart-line-up class="text-lg" weight="regular"></ph-chart-line-up>
+            <span>Reports</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-dice-five class="text-lg" weight="regular"></ph-dice-five>
+            <span>Games</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-gift class="text-lg" weight="regular"></ph-gift>
+            <span>Bonus</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-hand-arrow-down class="text-lg" weight="regular"></ph-hand-arrow-down>
+            <span>Withdrawal</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-megaphone class="text-lg" weight="regular"></ph-megaphone>
+            <span>Promotions</span>
+          </button>
+          <button
+            class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
+          >
+            <ph-gear class="text-lg" weight="regular"></ph-gear>
+            <span>Settings</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <div class="flex flex-1 flex-col">
+        <!-- Header -->
+        <header
+          class="flex items-center justify-between border-b border-[rgba(0,0,0,0.1)] bg-white px-7 py-5"
+          style="border-bottom-width: 0.5px;"
+        >
+          <!-- Breadcrumb -->
+          <div class="flex items-center gap-2">
+            <div class="flex items-center gap-0">
+              <a href="index.html" class="px-3 py-1 rounded-2xl text-sm leading-5 text-[rgba(0,0,0,0.4)] hover:bg-slate-50 transition-colors">
+                User Profile
+              </a>
+              <span class="text-sm text-[rgba(0,0,0,0.1)] px-1">/</span>
+              <a href="user-profile.html" class="px-3 py-1 rounded-2xl text-sm leading-5 text-black bg-[rgba(0,0,0,0.04)] hover:bg-[rgba(0,0,0,0.06)] transition-colors">
+                My Players
+              </a>
+              <button class="ml-2 flex items-center gap-1 bg-black text-white px-3 py-1 rounded text-sm leading-5 hover:bg-gray-800 transition-colors">
+                <ph-plus class="text-base" weight="regular"></ph-plus>
+                <span>Add User</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Section: Search, Icons, Avatar -->
+          <div class="flex items-center gap-5">
+            <!-- Search Input -->
+            <div class="flex items-center gap-2 bg-[rgba(0,0,0,0.04)] px-2 py-1 rounded-md w-40 overflow-hidden">
+              <div class="flex items-center gap-2 flex-1">
+                <ph-magnifying-glass class="text-base text-[rgba(0,0,0,0.2)]" weight="regular"></ph-magnifying-glass>
+                <input 
+                  type="text" 
+                  placeholder="Search" 
+                  class="flex-1 bg-transparent text-sm text-[rgba(0,0,0,0.2)] placeholder-[rgba(0,0,0,0.2)] outline-none border-none"
+                />
+              </div>
+              <div class="border border-[rgba(0,0,0,0.1)] rounded px-1 text-xs text-[rgba(0,0,0,0.2)] flex-shrink-0" style="border-width: 0.5px;">/</div>
+            </div>
+
+            <!-- Icon Buttons -->
+            <div class="flex items-center gap-2">
+              <button class="w-7 h-7 flex items-center justify-center rounded-2xl hover:bg-slate-100 transition-colors min-w-[28px] min-h-[28px]">
+                <ph-sun class="text-base text-gray-700" weight="regular"></ph-sun>
+              </button>
+              <button class="w-7 h-7 flex items-center justify-center rounded-2xl hover:bg-slate-100 transition-colors min-w-[28px] min-h-[28px]">
+                <ph-bell class="text-base text-gray-700" weight="regular"></ph-bell>
+              </button>
+              <div class="w-6 h-6 rounded-full bg-[rgba(0,0,0,0.04)] overflow-hidden flex-shrink-0">
+                <img
+                  class="w-full h-full object-cover"
+                  src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80"
+                  alt="Avatar"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Content body -->
+        <main class="flex flex-1 flex-col bg-white p-16">
+          <!-- Filter Tabs Section -->
+          <section class="flex items-center gap-6 mb-8">
+            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
+              <button class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
+                <ph-calendar-check class="text-lg" weight="regular"></ph-calendar-check>
+                <span>Nov 02, 2025 - Nov 05, 2025</span>
+              </button>
+            </div>
+            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
+              <button class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
+                <ph-calendar-check class="text-lg" weight="regular"></ph-calendar-check>
+                <span>Filter by Name / Email/ Mobile Number</span>
+              </button>
+            </div>
+            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
+              <button class="bg-white flex items-center gap-1 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
+                <ph-plus class="text-lg" weight="regular"></ph-plus>
+                <span>Add Agent</span>
+              </button>
+            </div>
+            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
+              <button class="bg-white flex items-center gap-1 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
+                <ph-plus class="text-lg" weight="regular"></ph-plus>
+                <span>Add Source</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Title -->
+          <h1 class="text-[32px] font-semibold text-[#121212] mb-8">Transactions History</h1>
+
+          <!-- Date Range and Export Buttons -->
+          <section class="flex items-center justify-between mb-6">
+            <button class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors">
+              <span>Sep 9, 2024 - Sep 15, 2024</span>
+              <ph-calendar-alt class="text-base" weight="regular"></ph-calendar-alt>
+            </button>
+            <div class="flex items-center gap-4">
+              <button class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors">
+                <span>Export CSV</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+              </button>
+              <button class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors">
+                <span>Download Invoices</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </button>
+            </div>
+          </section>
+
+          <!-- Transactions Table -->
+          <section class="bg-white rounded-2xl shadow-lg border border-[#f5f5f5] overflow-hidden">
+            <!-- Table Header Section -->
+            <div class="p-4 border-b border-[#f5f5f5]">
+              <h2 class="text-xl font-semibold text-[#111827] mb-1">Transactions</h2>
+              <p class="text-sm text-[#71717a]">This is a list of latest user details & transactions.</p>
+            </div>
+
+            <!-- Table Header Row -->
+            <div class="bg-[#fafafa] border-b border-[#f5f5f5] h-[67px] relative">
+              <p class="absolute left-[23.5px] top-[23.5px] text-base font-medium text-[#737375]">Ref ID</p>
+              <p class="absolute left-[247.33px] top-[23.5px] text-base font-medium text-[#737375]">Agents</p>
+              <p class="absolute left-[538.17px] top-[23.5px] text-base font-medium text-[#737375]">Balances</p>
+              <p class="absolute left-[850px] top-[23.5px] text-base font-medium text-[#737375]">Reward Point</p>
+              <p class="absolute left-[1125.33px] top-[23.5px] text-base font-medium text-[#737375] text-center" style="transform: translateX(-50%);">Created at</p>
+              <p class="absolute left-[1340.67px] top-[23.5px] text-base font-medium text-[#737375] text-center" style="transform: translateX(-50%);">Last active</p>
+              <p class="absolute left-[1573.5px] top-[23.5px] text-base font-medium text-[#737375] text-right" style="transform: translateX(-100%);">Actions</p>
+            </div>
+
+            <!-- Table Rows -->
+            <div class="divide-y divide-[#f5f5f5]">
+            <!-- Row 1 -->
+            <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+                <div class="absolute left-[24px] top-[24px] w-[206px]">
+                  <p class="text-sm font-semibold text-[#111827] leading-[20px]">Kunda Peer Basha</p>
+                  <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
+                </div>
+                <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
+                <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
+                <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
+                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
+                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
+                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
+                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
+                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
+                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
+                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+                <div class="absolute left-[24px] top-[24px] w-[206px]">
+                  <p class="text-sm font-semibold text-[#111827] leading-[20px]">Sourabh Ganguly</p>
+                  <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
+                </div>
+                <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
+                <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
+                <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
+                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
+                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
+                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
+                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
+                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
+                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
+                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+                <div class="absolute left-[24px] top-[24px] w-[206px]">
+                  <p class="text-sm font-semibold text-[#111827] leading-[20px]">Sachin Tenjulkar</p>
+                  <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
+                </div>
+                <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
+                <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
+                <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
+                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
+                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
+                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
+                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
+                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
+                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
+                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 4 -->
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+                <div class="absolute left-[24px] top-[24px] w-[206px]">
+                  <p class="text-sm font-semibold text-[#111827] leading-[20px]">Rohit Chand</p>
+                  <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
+                </div>
+                <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
+                <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
+                <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
+                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
+                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
+                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
+                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
+                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
+                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
+                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 5 -->
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+                <div class="absolute left-[24px] top-[24px] w-[206px]">
+                  <p class="text-sm font-semibold text-[#111827] leading-[20px]">Kunda Peer Basha</p>
+                  <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
+                </div>
+                <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
+                <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
+                <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
+                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
+                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
+                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
+                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
+                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
+                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
+                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 6 -->
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+                <div class="absolute left-[24px] top-[24px] w-[206px]">
+                  <p class="text-sm font-semibold text-[#111827] leading-[20px]">Sourabh Ganguly</p>
+                  <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
+                </div>
+                <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
+                <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
+                <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
+                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
+                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
+                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
+                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
+                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
+                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
+                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 7 -->
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+                <div class="absolute left-[24px] top-[24px] w-[206px]">
+                  <p class="text-sm font-semibold text-[#111827] leading-[20px]">Sachin Tenjulkar</p>
+                  <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
+                </div>
+                <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
+                <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
+                <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
+                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
+                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
+                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
+                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
+                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
+                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
+                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 8 -->
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+                <div class="absolute left-[24px] top-[24px] w-[206px]">
+                  <p class="text-sm font-semibold text-[#111827] leading-[20px]">Kunda Peer Basha</p>
+                  <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
+                </div>
+                <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
+                <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
+                <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
+                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
+                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
+                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
+                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
+                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
+                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                  </button>
+                  <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
+                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+

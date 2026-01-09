@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betstudio - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Left Sidebar - Notifications & Activities -->
+        <aside class="left-sidebar">
+            <div class="sidebar-section">
+                <div class="section-title-wrapper">
+                    <h3 class="section-title">Notifications</h3>
+                </div>
+                <div class="notification-list">
+                    <div class="notification-item">
+                        <div class="notification-icon bg-gray">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <!-- Bug icon -->
+                                <path d="M8 2C6.89543 2 6 2.89543 6 4C6 5.10457 6.89543 6 8 6C9.10457 6 10 5.10457 10 4C10 2.89543 9.10457 2 8 2Z" fill="currentColor"/>
+                                <path d="M4 8C4 6.89543 4.89543 6 6 6C7.10457 6 8 6.89543 8 8C8 9.10457 7.10457 10 6 10C4.89543 10 4 9.10457 4 8Z" fill="currentColor"/>
+                                <path d="M12 8C12 6.89543 11.1046 6 10 6C8.89543 6 8 6.89543 8 8C8 9.10457 8.89543 10 10 10C11.1046 10 12 9.10457 12 8Z" fill="currentColor"/>
+                                <path d="M8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">PGS Deposit transferred to Bharat Matka</div>
+                            <div class="notification-time">Just now</div>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon bg-blue">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <!-- User icon -->
+                                <circle cx="8" cy="6" r="3" fill="currentColor"/>
+                                <path d="M3 14C3 11 5.5 9 8 9C10.5 9 13 11 13 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">New user registered.</div>
+                            <div class="notification-time">59 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon bg-gray">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <!-- Bug icon -->
+                                <path d="M8 2C6.89543 2 6 2.89543 6 4C6 5.10457 6.89543 6 8 6C9.10457 6 10 5.10457 10 4C10 2.89543 9.10457 2 8 2Z" fill="currentColor"/>
+                                <path d="M4 8C4 6.89543 4.89543 6 6 6C7.10457 6 8 6.89543 8 8C8 9.10457 7.10457 10 6 10C4.89543 10 4 9.10457 4 8Z" fill="currentColor"/>
+                                <path d="M12 8C12 6.89543 11.1046 6 10 6C8.89543 6 8 6.89543 8 8C8 9.10457 8.89543 10 10 10C11.1046 10 12 9.10457 12 8Z" fill="currentColor"/>
+                                <path d="M8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">You fixed a bug.</div>
+                            <div class="notification-time">12 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon bg-blue">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <!-- User icon -->
+                                <circle cx="8" cy="6" r="3" fill="currentColor"/>
+                                <path d="M3 14C3 11 5.5 9 8 9C10.5 9 13 11 13 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">Andi Lane registered as unique user.</div>
+                            <div class="notification-time">Today, 11:59 AM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section activities-section">
+                <div class="section-title-wrapper">
+                    <h3 class="section-title">Activities</h3>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-1"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Changed the style.</div>
+                            <div class="activity-time">Just now</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-2"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Released a new version.</div>
+                            <div class="activity-time">59 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-3"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Submitted a bug.</div>
+                            <div class="activity-time">12 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-4"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Modified A data in Page X.</div>
+                            <div class="activity-time">Today, 11:59 AM</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-5"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Added a new payment method.</div>
+                            <div class="activity-time">Dec 2, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-timeline"></div>
+            </div>
+        </aside>
+
+        <!-- Navigation Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-text">Betstudio</span>
+                </div>
+                <div class="logo-line"></div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Dashboards</div>
+                    <ul class="nav-menu">
+                        <li class="nav-item active">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- ChartPieSlice icon -->
+                                    <path d="M10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M10 2V10L18 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Statistics</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- Eye icon -->
+                                    <path d="M10 6C7.23858 6 5 8.23858 5 11C5 13.7614 7.23858 16 10 16C12.7614 16 15 13.7614 15 11C15 8.23858 12.7614 6 10 6Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M2 11C2 11 4.5 6 10 6C15.5 6 18 11 18 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M2 11C2 11 4.5 16 10 16C15.5 16 18 11 18 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="10" cy="11" r="1.5" fill="currentColor"/>
+                                </svg>
+                                <span>Overview</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- TrayArrowDown icon -->
+                                    <rect x="3" y="5" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M7 9L10 12L13 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 12V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Retention</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- Gift icon -->
+                                    <path d="M4 8H16V16H4V8Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M10 4V8M10 4C10 4 8 4 8 6C8 8 10 8 10 8M10 4C10 4 12 4 12 6C12 8 10 8 10 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M4 8H16" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <span>Bonus</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- Megaphone icon -->
+                                    <path d="M6 8L14 4V16L6 12V8Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M14 10H16C17.1046 10 18 10.8954 18 12C18 13.1046 17.1046 14 16 14H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Deposit Trigger</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Pages</div>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- IdentificationBadge icon -->
+                                    <rect x="4" y="2" width="12" height="16" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <circle cx="10" cy="7" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M6 14C6 12 7.5 11 10 11C12.5 11 14 12 14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>User Profile</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- User icon -->
+                                    <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M4 17C4 14 6.5 12 10 12C13.5 12 16 14 16 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>My Players</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- User icon -->
+                                    <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M4 17C4 14 6.5 12 10 12C13.5 12 16 14 16 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Reff. Commission</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- User icon -->
+                                    <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M4 17C4 14 6.5 12 10 12C13.5 12 16 14 16 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Bulk Players</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- User icon -->
+                                    <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M4 17C4 14 6.5 12 10 12C13.5 12 16 14 16 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Create Players</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- ChartLineUp icon -->
+                                    <path d="M3 16L8 11L12 15L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M17 7V10H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Reports</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- DiceFive icon -->
+                                    <rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <circle cx="7" cy="7" r="1" fill="currentColor"/>
+                                    <circle cx="13" cy="7" r="1" fill="currentColor"/>
+                                    <circle cx="10" cy="10" r="1" fill="currentColor"/>
+                                    <circle cx="7" cy="13" r="1" fill="currentColor"/>
+                                    <circle cx="13" cy="13" r="1" fill="currentColor"/>
+                                </svg>
+                                <span>Games</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- Gift icon -->
+                                    <path d="M4 8H16V16H4V8Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M10 4V8M10 4C10 4 8 4 8 6C8 8 10 8 10 8M10 4C10 4 12 4 12 6C12 8 10 8 10 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M4 8H16" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <span>Bonus</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- HandArrowDown icon -->
+                                    <path d="M10 4V14M10 14L7 11M10 14L13 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M4 16H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Withdrawal</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- Megaphone icon -->
+                                    <path d="M6 8L14 4V16L6 12V8Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M14 10H16C17.1046 10 18 10.8954 18 12C18 13.1046 17.1046 14 16 14H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Promotions</span>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-arrow">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="nav-content">
+                                <svg class="nav-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <!-- Gear icon -->
+                                    <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    <path d="M10 2V4M10 16V18M18 10H16M4 10H2M16.364 4.636L14.95 6.05M5.05 13.95L3.636 15.364M16.364 15.364L14.95 13.95M5.05 6.05L3.636 4.636" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <span>Settings</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-top">
+                    <div class="breadcrumb">
+                        <button class="breadcrumb-item">Dashboards</button>
+                        <span class="breadcrumb-separator">/</span>
+                        <button class="breadcrumb-item active">Statistics</button>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <div class="search-bar">
+                            <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                <path d="M11 11L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <input type="text" placeholder="Search" class="search-input">
+                            <span class="search-shortcut">⌘K</span>
+                        </div>
+                        
+                        <div class="header-icons">
+                            <button class="icon-btn">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="3" fill="currentColor"/>
+                                    <path d="M8 1V3M8 13V15M15 8H13M3 8H1M13.0711 2.92893L11.6569 4.34315M4.34315 11.6569L2.92893 13.0711M13.0711 13.0711L11.6569 11.6569M4.34315 4.34315L2.92893 2.92893" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            <button class="icon-btn">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 2V6M8 10V14M2 8H6M10 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                </svg>
+                            </button>
+                            <div class="avatar">
+                                <div class="avatar-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filters -->
+                <div class="filters">
+                    <div class="filter-tab">
+                        <svg class="filter-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 6H16M6 10H14M8 14H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Nov 02, 2025 - Nov 05, 2025</span>
+                    </div>
+                    <div class="filter-tab">
+                        <svg class="filter-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 6H16M6 10H14M8 14H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Date Today</span>
+                    </div>
+                    <div class="filter-tab">
+                        <svg class="filter-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 6H16M6 10H14M8 14H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Wallet type filter Bonus</span>
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-tab-btn active">Statistics</button>
+                        <button class="filter-tab-btn">Accounting</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-icon blue">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="10" y="10" width="20" height="20" rx="4" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">2,45,000</div>
+                            <div class="stat-label">Registered Users</div>
+                        </div>
+                    </div>
+                    <div class="stat-trend up">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M11 0L13.75 8.25L22 11L13.75 13.75L11 22L8.25 13.75L0 11L8.25 8.25L11 0Z" fill="currentColor"/>
+                        </svg>
+                        <span>1.3% Up from past we</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-icon blue">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="10" y="10" width="20" height="20" rx="4" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">12,50,340</div>
+                            <div class="stat-label">Total Bonus</div>
+                        </div>
+                    </div>
+                    <div class="stat-trend up">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M11 0L13.75 8.25L22 11L13.75 13.75L11 22L8.25 13.75L0 11L8.25 8.25L11 0Z" fill="currentColor"/>
+                        </svg>
+                        <span>1.3% Up from past we</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-icon orange">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="10" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">1,44,12,000</div>
+                            <div class="stat-label">Total Deposit</div>
+                        </div>
+                    </div>
+                    <div class="stat-trend down">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M11 22L8.25 13.75L0 11L8.25 8.25L11 0L13.75 8.25L22 11L13.75 13.75L11 22Z" fill="currentColor"/>
+                        </svg>
+                        <span>1.3% Up from past we</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-icon light-blue">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="10" y="10" width="20" height="20" rx="4" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value">88,12,000</div>
+                            <div class="stat-label">Total Withdrawal</div>
+                        </div>
+                    </div>
+                    <div class="stat-trend up">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <path d="M11 0L13.75 8.25L22 11L13.75 13.75L11 22L8.25 13.75L0 11L8.25 8.25L11 0Z" fill="currentColor"/>
+                        </svg>
+                        <span>1.3% Up from past we</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <!-- GGR Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-tabs">
+                            <span class="chart-tab active">GGR</span>
+                            <span class="chart-tab">Total GGR</span>
+                        </div>
+                        <div class="chart-legend">
+                            <span class="legend-item">
+                                <span class="legend-dot dark"></span>
+                                <span>This year</span>
+                            </span>
+                            <span class="legend-item">
+                                <span class="legend-dot light"></span>
+                                <span>Last year</span>
+                            </span>
+                            <button class="filter-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M4 6H16M6 10H14M8 14H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span>Filter By</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-y-axis">
+                            <span>4</span>
+                            <span>3</span>
+                            <span>2</span>
+                            <span>1</span>
+                        </div>
+                        <div class="chart-area">
+                            <svg class="chart-svg" viewBox="0 0 694 316" preserveAspectRatio="none">
+                                <!-- Grid lines -->
+                                <line x1="0" y1="54" x2="694" y2="54" stroke="#E5E7EB" stroke-width="1"/>
+                                <line x1="0" y1="108" x2="694" y2="108" stroke="#E5E7EB" stroke-width="1"/>
+                                <line x1="0" y1="162" x2="694" y2="162" stroke="#E5E7EB" stroke-width="1"/>
+                                <line x1="0" y1="216" x2="694" y2="216" stroke="#E5E7EB" stroke-width="1"/>
+                                <!-- Chart lines -->
+                                <path d="M0,185 L99,170 L198,155 L297,140 L396,125 L495,110 L594,95" stroke="#374151" stroke-width="2" fill="none"/>
+                                <path d="M0,200 L99,190 L198,180 L297,170 L396,160 L495,150 L594,140" stroke="#60A5FA" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+                                <!-- Area fill -->
+                                <path d="M0,185 L99,170 L198,155 L297,140 L396,125 L495,110 L594,95 L594,316 L0,316 Z" fill="url(#gradient1)" opacity="0.3"/>
+                                <defs>
+                                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#374151;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#374151;stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="chart-x-axis">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span>7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NGR Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-tabs">
+                            <span class="chart-tab active">NGR</span>
+                            <span class="chart-tab">Total NGR</span>
+                        </div>
+                        <div class="chart-legend">
+                            <span class="legend-item">
+                                <span class="legend-dot dark"></span>
+                                <span>This year</span>
+                            </span>
+                            <span class="legend-item">
+                                <span class="legend-dot light"></span>
+                                <span>Last year</span>
+                            </span>
+                            <button class="filter-btn">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M4 6H16M6 10H14M8 14H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span>Filter By</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-y-axis">
+                            <span>4</span>
+                            <span>3</span>
+                            <span>2</span>
+                            <span>1</span>
+                        </div>
+                        <div class="chart-area">
+                            <svg class="chart-svg" viewBox="0 0 694 316" preserveAspectRatio="none">
+                                <!-- Grid lines -->
+                                <line x1="0" y1="54" x2="694" y2="54" stroke="#E5E7EB" stroke-width="1"/>
+                                <line x1="0" y1="108" x2="694" y2="108" stroke="#E5E7EB" stroke-width="1"/>
+                                <line x1="0" y1="162" x2="694" y2="162" stroke="#E5E7EB" stroke-width="1"/>
+                                <line x1="0" y1="216" x2="694" y2="216" stroke="#E5E7EB" stroke-width="1"/>
+                                <!-- Chart lines -->
+                                <path d="M0,185 L99,170 L198,155 L297,140 L396,125 L495,110 L594,95" stroke="#374151" stroke-width="2" fill="none"/>
+                                <path d="M0,200 L99,190 L198,180 L297,170 L396,160 L495,150 L594,140" stroke="#60A5FA" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+                                <!-- Area fill -->
+                                <path d="M0,185 L99,170 L198,155 L297,140 L396,125 L495,110 L594,95 L594,316 L0,316 Z" fill="url(#gradient2)" opacity="0.3"/>
+                                <defs>
+                                    <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#374151;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#374151;stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="chart-x-axis">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span>7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <!-- GGR Table -->
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Gross Gaming Revenue</h3>
+                </div>
+                <div class="table-content">
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="cell-label">Total GGR</div>
+                            <div class="cell-date">5 November 2025</div>
+                        </div>
+                        <div class="table-cell value positive">
+                            3,22,708.37
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="cell-label">Casino GGR</div>
+                            <div class="cell-date">5 November 2025</div>
+                        </div>
+                        <div class="table-cell value">
+                            3,091.05
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="cell-label">Sports GGR</div>
+                            <div class="cell-date">5 November 2025</div>
+                        </div>
+                        <div class="table-cell value">
+                            1,422.04
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="cell-label">Matka GGR</div>
+                            <div class="cell-date">5 November 2025</div>
+                        </div>
+                        <div class="table-cell value negative">
+                            -350
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NGR Table -->
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Net Gaming Revenue</h3>
+                </div>
+                <div class="table-content">
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="cell-label">Total NGR</div>
+                            <div class="cell-date">5 November 2025</div>
+                        </div>
+                        <div class="table-cell value positive">
+                            3,22,708.37
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="cell-label">Net Float</div>
+                            <div class="cell-date">5 November 2025</div>
+                        </div>
+                        <div class="table-cell value">
+                            3,091.05
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <div class="cell-label">PGS Net Float</div>
+                            <div class="cell-date">5 November 2025</div>
+                        </div>
+                        <div class="table-cell value">
+                            1,422.04
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
+                    <div class="notification-item">
+                        <div class="notification-icon bg-gray">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <!-- Bug icon -->
+                                <path d="M8 2C6.89543 2 6 2.89543 6 4C6 5.10457 6.89543 6 8 6C9.10457 6 10 5.10457 10 4C10 2.89543 9.10457 2 8 2Z" fill="currentColor"/>
+                                <path d="M4 8C4 6.89543 4.89543 6 6 6C7.10457 6 8 6.89543 8 8C8 9.10457 7.10457 10 6 10C4.89543 10 4 9.10457 4 8Z" fill="currentColor"/>
+                                <path d="M12 8C12 6.89543 11.1046 6 10 6C8.89543 6 8 6.89543 8 8C8 9.10457 8.89543 10 10 10C11.1046 10 12 9.10457 12 8Z" fill="currentColor"/>
+                                <path d="M8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">PGS Deposit transferred to Bharat Matka</div>
+                            <div class="notification-time">Just now</div>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon bg-blue">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <!-- User icon -->
+                                <circle cx="8" cy="6" r="3" fill="currentColor"/>
+                                <path d="M3 14C3 11 5.5 9 8 9C10.5 9 13 11 13 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">New user registered.</div>
+                            <div class="notification-time">59 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon bg-gray">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <!-- Bug icon -->
+                                <path d="M8 2C6.89543 2 6 2.89543 6 4C6 5.10457 6.89543 6 8 6C9.10457 6 10 5.10457 10 4C10 2.89543 9.10457 2 8 2Z" fill="currentColor"/>
+                                <path d="M4 8C4 6.89543 4.89543 6 6 6C7.10457 6 8 6.89543 8 8C8 9.10457 7.10457 10 6 10C4.89543 10 4 9.10457 4 8Z" fill="currentColor"/>
+                                <path d="M12 8C12 6.89543 11.1046 6 10 6C8.89543 6 8 6.89543 8 8C8 9.10457 8.89543 10 10 10C11.1046 10 12 9.10457 12 8Z" fill="currentColor"/>
+                                <path d="M8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">You fixed a bug.</div>
+                            <div class="notification-time">12 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="notification-item">
+                        <div class="notification-icon bg-blue">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <!-- User icon -->
+                                <circle cx="8" cy="6" r="3" fill="currentColor"/>
+                                <path d="M3 14C3 11 5.5 9 8 9C10.5 9 13 11 13 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">Andi Lane registered as unique user.</div>
+                            <div class="notification-time">Today, 11:59 AM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section activities-section">
+                <div class="section-title-wrapper">
+                    <h3 class="section-title">Activities</h3>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-1"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Changed the style.</div>
+                            <div class="activity-time">Just now</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-2"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Released a new version.</div>
+                            <div class="activity-time">59 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-3"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Submitted a bug.</div>
+                            <div class="activity-time">12 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-4"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Modified A data in Page X.</div>
+                            <div class="activity-time">Today, 11:59 AM</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar-wrapper">
+                            <div class="activity-avatar avatar-5"></div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-text">Added a new payment method.</div>
+                            <div class="activity-time">Dec 2, 2025</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity-timeline"></div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
+

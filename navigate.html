@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation - Betstudio Dashboard</title>
+    <style>
+        body {
+            font-family: Inter, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f9f9fa;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #121212;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        a:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Betstudio Dashboard - Navigation</h1>
+        <div class="links">
+            <a href="index.html">📊 Main Dashboard</a>
+            <a href="user-profile.html">👤 User Profile / Transactions History</a>
+        </div>
+        <p style="margin-top: 30px; color: #666; font-size: 14px;">
+            If files don't open, try accessing via:<br>
+            <code>http://localhost:8000/index.html</code><br>
+            <code>http://localhost:8000/user-profile.html</code>
+        </p>
+    </div>
+</body>
+</html>
+
+
+
