@@ -1,0 +1,19 @@
+{
+  "name": "betstudio-dashboard",
+  "version": "1.0.0",
+  "description": "Backoffice Dashboard for Betstudio",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "dashboard",
+    "backoffice",
+    "betstudio"
+  ],
+  "author": "Garimadasila4",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
