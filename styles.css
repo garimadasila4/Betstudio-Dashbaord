@@ -1,0 +1,44 @@
+/* Ensure Phosphor Icons display correctly */
+ph-chart-pie-slice, 
+ph-eye, 
+ph-tray-arrow-down, 
+ph-gift, 
+ph-megaphone,
+ph-identification-badge, 
+ph-chart-line-up, 
+ph-dice-five, 
+ph-hand-arrow-down,
+ph-gear, 
+ph-magnifying-glass, 
+ph-sun, 
+ph-bell, 
+ph-calendar-check, 
+ph-wallet,
+ph-faders, 
+ph-shield-checkered, 
+ph-currency-circle-dollar, 
+ph-arrow-circle-down,
+ph-arrow-circle-up, 
+ph-arrow-up-right, 
+ph-arrow-down-left,
+ph-plus,
+ph-calendar-alt,
+ph-cardholder,
+ph-prohibit,
+ph-wrench,
+ph-note-pencil,
+ph-arrow-line-right {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Additional custom styles if needed */
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* Ensure proper rendering */
+* {
+  box-sizing: border-box;
+}
+
