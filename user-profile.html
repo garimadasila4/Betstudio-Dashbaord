@@ -889,8 +889,20 @@
         if (datePickerBtn1) {
           datePickerBtn1.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
+            console.log('Date picker button 1 clicked');
             openDatePicker('1');
           });
+          // Also make the icon clickable
+          const icon1 = datePickerBtn1.querySelector('i');
+          if (icon1) {
+            icon1.style.cursor = 'pointer';
+            icon1.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              openDatePicker('1');
+            });
+          }
         } else {
           console.error('Date picker button 1 not found');
         }
@@ -898,8 +910,20 @@
         if (datePickerBtn2) {
           datePickerBtn2.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
+            console.log('Date picker button 2 clicked');
             openDatePicker('2');
           });
+          // Also make the icon clickable
+          const icon2 = datePickerBtn2.querySelector('i');
+          if (icon2) {
+            icon2.style.cursor = 'pointer';
+            icon2.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              openDatePicker('2');
+            });
+          }
         } else {
           console.error('Date picker button 2 not found');
         }
