@@ -787,7 +787,7 @@
     </div>
 
     <!-- Date Picker Modal -->
-    <div id="date-picker-modal" class="fixed inset-0 z-[10000] flex items-center justify-center p-4" style="display: none;">
+    <div id="date-picker-modal" class="registered-modal fixed inset-0 z-[10000] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" onclick="closeDatePicker()"></div>
       <div class="modal-panel relative z-10 w-full max-w-md rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl p-6">
         <div class="flex items-center justify-between mb-6">
@@ -820,68 +820,96 @@
     </div>
 
     <script>
-      // Date Picker functionality
-      let currentDatePickerTarget = null;
-      const datePickerModal = document.getElementById('date-picker-modal');
-      const startDateInput = document.getElementById('start-date');
-      const endDateInput = document.getElementById('end-date');
+      // Date Picker functionality - Wait for DOM to be ready
+      document.addEventListener('DOMContentLoaded', function() {
+        let currentDatePickerTarget = null;
+        const datePickerModal = document.getElementById('date-picker-modal');
+        const startDateInput = document.getElementById('start-date');
+        const endDateInput = document.getElementById('end-date');
 
-      function openDatePicker(targetId) {
-        currentDatePickerTarget = targetId;
-        datePickerModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeDatePicker() {
-        datePickerModal.style.display = 'none';
-        document.body.style.overflow = '';
-        currentDatePickerTarget = null;
-      }
-
-      function applyDateRange() {
-        const startDate = startDateInput.value;
-        const endDate = endDateInput.value;
-        
-        if (startDate && endDate) {
-          const start = new Date(startDate);
-          const end = new Date(endDate);
-          
-          const formatDate = (date) => {
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-          };
-          
-          const formattedRange = `${formatDate(start)} - ${formatDate(end)}`;
-          
-          // Update the display for the current target
-          const displayElement = document.getElementById(`date-display-${currentDatePickerTarget}`);
-          if (displayElement) {
-            displayElement.textContent = formattedRange;
+        function openDatePicker(targetId) {
+          if (!datePickerModal) {
+            console.error('Date picker modal not found');
+            return;
           }
+          currentDatePickerTarget = targetId;
+          datePickerModal.style.display = 'flex';
+          datePickerModal.classList.add('is-open');
+          document.body.classList.add('modal-open');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeDatePicker() {
+          if (!datePickerModal) return;
+          datePickerModal.style.display = 'none';
+          datePickerModal.classList.remove('is-open');
+          document.body.classList.remove('modal-open');
+          document.body.style.overflow = '';
+          currentDatePickerTarget = null;
+        }
+
+        function applyDateRange() {
+          if (!startDateInput || !endDateInput) return;
           
-          closeDatePicker();
+          const startDate = startDateInput.value;
+          const endDate = endDateInput.value;
+          
+          if (startDate && endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            
+            const formatDate = (date) => {
+              const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+              return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+            };
+            
+            const formattedRange = `${formatDate(start)} - ${formatDate(end)}`;
+            
+            // Update the display for the current target
+            const displayElement = document.getElementById(`date-display-${currentDatePickerTarget}`);
+            if (displayElement) {
+              displayElement.textContent = formattedRange;
+            }
+            
+            closeDatePicker();
+          } else {
+            alert('Please select both start and end dates');
+          }
+        }
+
+        // Make functions globally available for onclick handlers
+        window.openDatePicker = openDatePicker;
+        window.closeDatePicker = closeDatePicker;
+        window.applyDateRange = applyDateRange;
+
+        // Add event listeners for date picker buttons
+        const datePickerBtn1 = document.getElementById('date-picker-btn-1');
+        const datePickerBtn2 = document.getElementById('date-picker-btn-2');
+        
+        if (datePickerBtn1) {
+          datePickerBtn1.addEventListener('click', (e) => {
+            e.preventDefault();
+            openDatePicker('1');
+          });
         } else {
-          alert('Please select both start and end dates');
+          console.error('Date picker button 1 not found');
         }
-      }
-
-      // Add event listeners for date picker buttons
-      const datePickerBtn1 = document.getElementById('date-picker-btn-1');
-      const datePickerBtn2 = document.getElementById('date-picker-btn-2');
-      
-      if (datePickerBtn1) {
-        datePickerBtn1.addEventListener('click', () => openDatePicker('1'));
-      }
-      
-      if (datePickerBtn2) {
-        datePickerBtn2.addEventListener('click', () => openDatePicker('2'));
-      }
-
-      // Close on Escape key
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && datePickerModal.style.display === 'flex') {
-          closeDatePicker();
+        
+        if (datePickerBtn2) {
+          datePickerBtn2.addEventListener('click', (e) => {
+            e.preventDefault();
+            openDatePicker('2');
+          });
+        } else {
+          console.error('Date picker button 2 not found');
         }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && datePickerModal && datePickerModal.style.display === 'flex') {
+            closeDatePicker();
+          }
+        });
       });
 
       // Registered Users Modal
