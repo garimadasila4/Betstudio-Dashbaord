@@ -39,7 +39,7 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="min-h-screen bg-white font-sans text-slate-900">
+  <body class="min-h-screen bg-white font-sans text-slate-900 overflow-x-hidden">
     <div class="flex min-h-screen">
       <!-- Sidebar -->
       <aside
@@ -221,7 +221,7 @@
         </header>
 
         <!-- Content body -->
-        <main class="flex flex-1 flex-col bg-white p-16">
+        <main class="flex flex-1 flex-col bg-white px-8 py-16">
           <!-- Filter Tabs Section -->
           <section class="flex items-center gap-6 mb-8">
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
@@ -248,6 +248,13 @@
                 <span>Add Source</span>
               </button>
             </div>
+            <button
+              id="registered-users-card"
+              class="ml-auto flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-white px-4 py-2 text-sm font-semibold text-[#111827] hover:bg-[#f9fafb] transition-colors"
+            >
+              <ph-shield-checkered class="text-base text-[#2563eb]" weight="regular"></ph-shield-checkered>
+              <span>Registered Users</span>
+            </button>
           </section>
 
           <!-- Title -->
@@ -276,7 +283,7 @@
           </section>
 
           <!-- Transactions Table -->
-          <section class="bg-white rounded-2xl shadow-lg border border-[#f5f5f5] overflow-hidden">
+          <section class="bg-white rounded-2xl shadow-lg border border-[#f5f5f5] w-full">
             <!-- Table Header Section -->
             <div class="p-4 border-b border-[#f5f5f5]">
               <h2 class="text-xl font-semibold text-[#111827] mb-1">Transactions</h2>
@@ -284,7 +291,7 @@
             </div>
 
             <!-- Table Header Row -->
-            <div class="bg-[#fafafa] border-b border-[#f5f5f5] h-[67px] relative">
+            <div class="bg-[#fafafa] border-b border-[#f5f5f5] h-[67px] relative min-w-[1630px]">
               <p class="absolute left-[23.5px] top-[23.5px] text-base font-medium text-[#737375]">Ref ID</p>
               <p class="absolute left-[247.33px] top-[23.5px] text-base font-medium text-[#737375]">Agents</p>
               <p class="absolute left-[538.17px] top-[23.5px] text-base font-medium text-[#737375]">Balances</p>
@@ -297,7 +304,7 @@
             <!-- Table Rows -->
             <div class="divide-y divide-[#f5f5f5]">
             <!-- Row 1 -->
-            <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+            <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors min-w-[1630px]">
                 <div class="absolute left-[24px] top-[24px] w-[206px]">
                   <p class="text-sm font-semibold text-[#111827] leading-[20px]">Kunda Peer Basha</p>
                   <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
@@ -305,8 +312,22 @@
                 <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
                 <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
                 <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
-                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
-                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1083px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#5bb98b] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(12:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute left-[1305px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#e5484d] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(13:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
                     <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
@@ -327,7 +348,7 @@
               </div>
 
               <!-- Row 2 -->
-              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors min-w-[1630px]">
                 <div class="absolute left-[24px] top-[24px] w-[206px]">
                   <p class="text-sm font-semibold text-[#111827] leading-[20px]">Sourabh Ganguly</p>
                   <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
@@ -335,8 +356,22 @@
                 <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
                 <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
                 <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
-                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
-                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1083px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#5bb98b] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(12:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute left-[1305px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#e5484d] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(13:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
                     <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
@@ -357,7 +392,7 @@
               </div>
 
               <!-- Row 3 -->
-              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors min-w-[1630px]">
                 <div class="absolute left-[24px] top-[24px] w-[206px]">
                   <p class="text-sm font-semibold text-[#111827] leading-[20px]">Sachin Tenjulkar</p>
                   <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
@@ -365,8 +400,22 @@
                 <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
                 <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
                 <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
-                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
-                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1083px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#5bb98b] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(12:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute left-[1305px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#e5484d] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(13:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
                     <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
@@ -387,7 +436,7 @@
               </div>
 
               <!-- Row 4 -->
-              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors min-w-[1630px]">
                 <div class="absolute left-[24px] top-[24px] w-[206px]">
                   <p class="text-sm font-semibold text-[#111827] leading-[20px]">Rohit Chand</p>
                   <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
@@ -395,8 +444,22 @@
                 <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
                 <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
                 <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
-                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
-                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1083px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#5bb98b] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(12:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute left-[1305px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#e5484d] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(13:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
                     <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
@@ -417,7 +480,7 @@
               </div>
 
               <!-- Row 5 -->
-              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors min-w-[1630px]">
                 <div class="absolute left-[24px] top-[24px] w-[206px]">
                   <p class="text-sm font-semibold text-[#111827] leading-[20px]">Kunda Peer Basha</p>
                   <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
@@ -425,8 +488,22 @@
                 <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
                 <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
                 <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
-                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
-                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1083px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#5bb98b] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(12:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute left-[1305px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#e5484d] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(13:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
                     <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
@@ -447,7 +524,7 @@
               </div>
 
               <!-- Row 6 -->
-              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors min-w-[1630px]">
                 <div class="absolute left-[24px] top-[24px] w-[206px]">
                   <p class="text-sm font-semibold text-[#111827] leading-[20px]">Sourabh Ganguly</p>
                   <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
@@ -455,8 +532,22 @@
                 <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
                 <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
                 <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
-                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
-                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1083px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#5bb98b] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(12:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute left-[1305px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#e5484d] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(13:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
                     <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
@@ -477,7 +568,7 @@
               </div>
 
               <!-- Row 7 -->
-              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors min-w-[1630px]">
                 <div class="absolute left-[24px] top-[24px] w-[206px]">
                   <p class="text-sm font-semibold text-[#111827] leading-[20px]">Sachin Tenjulkar</p>
                   <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
@@ -485,8 +576,22 @@
                 <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
                 <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
                 <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
-                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
-                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1083px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#5bb98b] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(12:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute left-[1305px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#e5484d] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(13:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
                     <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
@@ -507,7 +612,7 @@
               </div>
 
               <!-- Row 8 -->
-              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors">
+              <div class="h-[83px] relative border-b border-[#f5f5f5] hover:bg-[#fafafa] transition-colors min-w-[1630px]">
                 <div class="absolute left-[24px] top-[24px] w-[206px]">
                   <p class="text-sm font-semibold text-[#111827] leading-[20px]">Kunda Peer Basha</p>
                   <p class="text-sm text-[#6b7280] leading-[20px]">#0091032122334</p>
@@ -515,8 +620,22 @@
                 <p class="absolute left-[247px] top-[32px] text-base font-medium text-[#121212] w-[171px]">Bharat Matka</p>
                 <p class="absolute left-[538px] top-[32px] text-base font-semibold text-[#121212] w-[162px]">+$15,000.00</p>
                 <p class="absolute left-[854px] top-[33px] text-base font-semibold text-[#121212] w-[162px]">+$5,670.00</p>
-                <p class="absolute left-[1083px] top-[32px] text-base font-semibold text-[#121212] w-[80px] text-center">14/1/2026</p>
-                <p class="absolute left-[1305px] top-[32px] text-base font-semibold text-[#121212] w-[81px] text-center">14/1/2026</p>
+                <div class="absolute left-[1083px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#5bb98b] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(12:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute left-[1305px] top-[32px] flex items-center justify-center">
+                  <div class="px-[10px] py-[2px] rounded">
+                    <p class="text-xs font-semibold text-[#e5484d] leading-[1.5] text-center">
+                      <span class="block">14/11/2025</span>
+                      <span class="block">(13:32:12 PM)</span>
+                    </p>
+                  </div>
+                </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
                     <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
@@ -540,6 +659,174 @@
         </main>
       </div>
     </div>
+
+    <!-- Registered Users Analytics Modal -->
+    <div id="registered-users-modal" class="registered-modal fixed inset-0 z-50 flex items-center justify-center" style="display: none;">
+      <div class="absolute inset-0 bg-black/30"></div>
+      <div class="modal-panel relative z-10 w-[1147px] h-[400px] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl">
+        <button id="registered-users-close" class="absolute right-6 top-6 w-8 h-8 rounded-full bg-[#f4f4f5] text-[#111827] hover:bg-[#e5e7eb] transition-colors" aria-label="Close">
+          ✕
+        </button>
+        <div class="flex items-center justify-between px-10 pt-8">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#f1f5ff] flex items-center justify-center">
+              <ph-shield-checkered class="text-lg text-[#2563eb]" weight="regular"></ph-shield-checkered>
+            </div>
+            <div>
+              <p class="text-lg font-semibold text-[#111827]">Registered User Analytics</p>
+              <p class="text-sm text-[#6b7280]">Overview</p>
+            </div>
+            <div class="ml-6 flex items-center gap-2 text-[#00b69b]">
+              <ph-arrow-up-right class="text-lg" weight="regular"></ph-arrow-up-right>
+              <span class="text-sm font-semibold">1.3% Up from past week</span>
+            </div>
+          </div>
+          <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[#e5e7eb] bg-white text-sm hover:bg-slate-50 transition-colors">
+            <ph-calendar-check class="text-base" weight="regular"></ph-calendar-check>
+            <span>Nov 02, 2025 - Nov 05, 2025</span>
+          </button>
+        </div>
+
+        <div class="flex gap-6 px-10 pt-6">
+          <!-- Widget 1 -->
+          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+            <p class="text-base font-semibold text-[#111827]">Users Registration</p>
+            <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
+            <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">02 Nov 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#6366f1]" style="--bar: 82%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">120k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">01 Nov 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#6366f1]" style="--bar: 68%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">80k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">31 Oct 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#6366f1]" style="--bar: 58%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">70k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">30 Oct 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#6366f1]" style="--bar: 40%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">50k</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 2 -->
+          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+            <p class="text-base font-semibold text-[#111827]">By Direct Players</p>
+            <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
+            <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">02 Nov 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#10b981]" style="--bar: 82%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">120k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">01 Nov 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#10b981]" style="--bar: 68%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">80k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">31 Oct 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#10b981]" style="--bar: 58%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">70k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">30 Oct 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#10b981]" style="--bar: 40%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">50k</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 3 -->
+          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+            <p class="text-base font-semibold text-[#111827]">By Agents/ Sub agents</p>
+            <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
+            <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">02 Nov 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#f97316]" style="--bar: 82%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">120k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">01 Nov 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#f97316]" style="--bar: 68%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">80k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">31 Oct 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#f97316]" style="--bar: 58%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">70k</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-[80px]">30 Oct 2025</span>
+                <div class="flex-1 h-7 rounded-full bg-[#eef2ff] px-3 flex items-center">
+                  <div class="analytics-bar h-2 rounded-full bg-[#f97316]" style="--bar: 40%; width: var(--bar);"></div>
+                </div>
+                <span class="text-[#111827] font-semibold">50k</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const registeredCard = document.getElementById('registered-users-card');
+      const registeredModal = document.getElementById('registered-users-modal');
+      const registeredClose = document.getElementById('registered-users-close');
+
+      const openRegisteredModal = () => {
+        registeredModal.classList.add('is-open');
+      };
+
+      const closeRegisteredModal = () => {
+        registeredModal.classList.remove('is-open');
+      };
+
+      if (registeredCard && registeredModal && registeredClose) {
+        registeredCard.addEventListener('click', openRegisteredModal);
+        registeredModal.addEventListener('click', (event) => {
+          if (event.target === registeredModal || event.target === registeredModal.firstElementChild) {
+            closeRegisteredModal();
+          }
+        });
+        registeredClose.addEventListener('click', closeRegisteredModal);
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            closeRegisteredModal();
+          }
+        });
+      }
+    </script>
   </body>
 </html>
 

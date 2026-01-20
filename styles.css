@@ -8,6 +8,7 @@ ph-identification-badge,
 ph-chart-line-up, 
 ph-dice-five, 
 ph-hand-arrow-down,
+ph-hand-arrow-up,
 ph-gear, 
 ph-magnifying-glass, 
 ph-sun, 
@@ -17,6 +18,7 @@ ph-wallet,
 ph-faders, 
 ph-shield-checkered, 
 ph-currency-circle-dollar, 
+ph-coins,
 ph-arrow-circle-down,
 ph-arrow-circle-up, 
 ph-arrow-up-right, 
@@ -34,7 +36,38 @@ ph-arrow-line-right {
 
 /* Additional custom styles if needed */
 body {
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  animation: fadeIn 0.4s ease-out, gradientShift 15s ease infinite;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+  background-size: 400% 400%;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Ensure proper rendering */
@@ -42,3 +75,490 @@ body {
   box-sizing: border-box;
 }
 
+/* ============================================
+   MODERN DASHBOARD ENHANCEMENTS
+   ============================================ */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global smooth transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern page fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: fadeIn 0.4s ease-out, gradientShift 15s ease infinite;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+  background-size: 400% 400%;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Modern sidebar enhancements */
+aside {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+aside a,
+aside button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+aside a:hover,
+aside button:hover {
+  transform: translateX(2px);
+}
+
+/* Modern header styling */
+header {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* KPI Cards - Modern enhancements */
+article.rounded-xl {
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+article.rounded-xl::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+article.rounded-xl:hover::before {
+  opacity: 1;
+}
+
+article.rounded-xl:hover {
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+}
+
+/* Modern button styling */
+button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Filter buttons - Modern styling */
+button.bg-white.border {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease;
+}
+
+button.bg-white.border:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Toggle buttons - Modern enhancement */
+#stats-accounting-toggle {
+  backdrop-filter: blur(10px);
+  background: rgba(244, 244, 245, 0.95);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#stats-accounting-toggle .toggle-btn.active {
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+#stats-accounting-toggle .toggle-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#stats-accounting-toggle .toggle-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Chart containers - Modern styling */
+.rounded-lg.bg-\[#f9f9fa\] {
+  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, #f9f9fa 0%, #f5f5f6 100%);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Table enhancements */
+section.bg-white.rounded-2xl {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+section.bg-white.rounded-2xl:hover {
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Table rows - Smooth hover */
+div.h-\[83px\] {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Table action buttons - Modern enhancement */
+div.h-\[83px\] button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 6px;
+}
+
+div.h-\[83px\] button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Search input - Modern styling */
+input[type="search"],
+input[type="text"] {
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+input[type="search"]:focus,
+input[type="text"]:focus {
+  box-shadow: 
+    0 0 0 3px rgba(59, 130, 246, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Avatar - Modern enhancement */
+img.rounded-full,
+div.rounded-full {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+img.rounded-full:hover,
+div.rounded-full:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon animations */
+ph-calendar-check,
+ph-eye,
+ph-faders,
+ph-cardholder,
+ph-prohibit,
+ph-wrench,
+ph-note-pencil {
+  transition: all 0.2s ease;
+}
+
+button:hover ph-calendar-check,
+button:hover ph-eye,
+button:hover ph-faders {
+  transform: scale(1.1);
+}
+
+/* Chart canvas - Smooth appearance */
+canvas {
+  animation: fadeIn 0.5s ease-out;
+  transition: opacity 0.3s ease;
+}
+
+/* Breadcrumb - Modern styling */
+a.rounded-2xl {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+a.rounded-2xl:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Smooth content transitions */
+#statistics-content,
+#accounting-content {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(59, 130, 246, 0.2);
+  color: inherit;
+}
+
+/* Focus visible styling */
+*:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Enhanced shadows for depth */
+.shadow-sm {
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Main content container */
+body > div.flex {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure sidebar and main content have proper backgrounds */
+aside,
+header,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* White card backgrounds with glassmorphism */
+.bg-white,
+article.rounded-lg.border,
+article.rounded-lg.bg-\[#f9f9fa\] > div.bg-white {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* KPI Cards enhanced */
+article.rounded-xl {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+article.rounded-xl::before {
+  background: linear-gradient(90deg, 
+    rgba(102, 126, 234, 0.8) 0%, 
+    rgba(118, 75, 162, 0.8) 25%, 
+    rgba(240, 147, 251, 0.8) 50%, 
+    rgba(79, 172, 254, 0.8) 75%, 
+    rgba(0, 242, 254, 0.8) 100%) !important;
+}
+
+/* Filter buttons with colorful accent */
+button.bg-white.border:hover {
+  border-color: rgba(102, 126, 234, 0.3) !important;
+  box-shadow: 
+    0 4px 12px rgba(102, 126, 234, 0.15),
+    0 0 0 1px rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Toggle buttons enhancement */
+#stats-accounting-toggle {
+  background: rgba(244, 244, 245, 0.9) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#stats-accounting-toggle .toggle-btn.active {
+  background: rgba(255, 255, 255, 1) !important;
+  box-shadow: 
+    0 4px 12px rgba(102, 126, 234, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Chart containers */
+.rounded-lg.bg-\[#f9f9fa\] {
+  background: rgba(249, 249, 250, 0.85) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Table enhancements */
+section.bg-white.rounded-2xl {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+article.rounded-lg.border {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Sidebar enhancement */
+aside {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Header enhancement */
+header {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Registered Users modal */
+.registered-modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.registered-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.modal-open {
+  overflow: hidden !important;
+}
+
+.registered-modal .modal-panel {
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+}
+
+.registered-modal.is-open .modal-panel {
+  animation: modalPop 0.24s ease-out forwards;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.analytics-widget {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analytics-widget:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+}
+
+.analytics-bar {
+  transform-origin: left center;
+}
+
+.registered-modal.is-open .analytics-bar {
+  animation: barGrow 0.5s ease-out;
+}
+
+@keyframes barGrow {
+  from {
+    transform: scaleX(0.3);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
