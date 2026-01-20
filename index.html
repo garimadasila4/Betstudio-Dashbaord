@@ -1408,6 +1408,15 @@
 
         function openDatePicker(targetId) {
           console.log('openDatePicker called with targetId:', targetId);
+          // Close any other open modals first
+          const allModals = document.querySelectorAll('[id$="-modal"]');
+          allModals.forEach(modal => {
+            if (modal.id !== 'date-picker-modal' && modal.style.display !== 'none') {
+              modal.style.display = 'none';
+              modal.classList.remove('is-open');
+            }
+          });
+          
           if (!datePickerModal) {
             console.error('Date picker modal not found');
             return;
@@ -1790,6 +1799,16 @@
       const totalWithdrawalClose = document.getElementById('total-withdrawal-close');
 
       const openTotalWithdrawalModal = () => {
+        console.log('Opening total withdrawal modal');
+        // Close date picker modal if it's open
+        const datePickerModal = document.getElementById('date-picker-modal');
+        if (datePickerModal && (datePickerModal.style.display === 'flex' || datePickerModal.classList.contains('is-open'))) {
+          datePickerModal.style.display = 'none';
+          datePickerModal.classList.remove('is-open');
+          datePickerModal.style.opacity = '0';
+          datePickerModal.style.pointerEvents = 'none';
+        }
+        
         document.body.classList.add('modal-open');
         totalWithdrawalModal.style.display = 'flex';
         requestAnimationFrame(() => {
@@ -1806,13 +1825,22 @@
       };
 
       if (totalWithdrawalCard && totalWithdrawalModal && totalWithdrawalClose) {
-        totalWithdrawalCard.addEventListener('click', openTotalWithdrawalModal);
+        totalWithdrawalCard.addEventListener('click', (e) => {
+          // Stop event propagation to prevent any parent handlers
+          e.stopPropagation();
+          e.preventDefault();
+          console.log('Total withdrawal card clicked');
+          openTotalWithdrawalModal();
+        });
         totalWithdrawalModal.addEventListener('click', (event) => {
           if (event.target === totalWithdrawalModal || event.target === totalWithdrawalModal.firstElementChild) {
             closeTotalWithdrawalModal();
           }
         });
-        totalWithdrawalClose.addEventListener('click', closeTotalWithdrawalModal);
+        totalWithdrawalClose.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeTotalWithdrawalModal();
+        });
         document.addEventListener('keydown', (event) => {
           if (event.key === 'Escape' && totalWithdrawalModal.classList.contains('is-open')) {
             closeTotalWithdrawalModal();
