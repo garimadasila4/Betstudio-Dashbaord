@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile - Transactions History</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <!-- Phosphor Icons - Web Components CDN (with crossorigin for CORS) -->
-    <script type="module" crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/dist/phosphor-icons.js"></script>
+    <!-- Phosphor Icons - Using importmap for better CORS support -->
+    <script type="importmap">
+    {
+      "imports": {
+        "@phosphor-icons/web": "https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/dist/phosphor-icons.js"
+      }
+    }
+    </script>
+    <script type="module">
+      import '@phosphor-icons/web';
+    </script>
     <script>
       tailwind.config = {
         theme: {
