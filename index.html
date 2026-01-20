@@ -1409,37 +1409,21 @@
         const endDateInput = document.getElementById('end-date');
 
         function openDatePicker(targetId) {
-          console.log('openDatePicker called with targetId:', targetId);
-          // Close any other open modals first
-          const allModals = document.querySelectorAll('[id$="-modal"]');
-          allModals.forEach(modal => {
-            if (modal.id !== 'date-picker-modal' && modal.style.display !== 'none') {
-              modal.style.display = 'none';
-              modal.classList.remove('is-open');
-            }
-          });
-          
           if (!datePickerModal) {
             console.error('Date picker modal not found');
             return;
           }
-          console.log('Opening date picker modal');
           currentDatePickerTarget = targetId;
           datePickerModal.style.display = 'flex';
-          datePickerModal.style.opacity = '1';
           datePickerModal.classList.add('is-open');
           document.body.classList.add('modal-open');
           document.body.style.overflow = 'hidden';
-          console.log('Modal should be visible now. Display:', datePickerModal.style.display);
         }
 
         function closeDatePicker() {
-          console.log('closeDatePicker called');
           if (!datePickerModal) return;
           datePickerModal.style.display = 'none';
           datePickerModal.classList.remove('is-open');
-          datePickerModal.style.opacity = '0';
-          datePickerModal.style.pointerEvents = 'none';
           document.body.classList.remove('modal-open');
           document.body.style.overflow = '';
           currentDatePickerTarget = null;
