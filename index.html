@@ -232,9 +232,9 @@
         <main class="flex flex-1 flex-col gap-4 sm:gap-6 bg-[#f9f9fa] p-4 sm:p-6 lg:p-10">
           <!-- Tabs Section -->
           <section class="flex items-center gap-4">
-            <button id="date-picker-btn-1" class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors cursor-pointer">
-              <i class="fas fa-calendar-check text-base"></i>
-              <span id="date-display-1">Nov 02, 2025 - Nov 05, 2025</span>
+            <button type="button" id="date-picker-btn-1" class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors cursor-pointer">
+              <i class="fas fa-calendar-check text-base pointer-events-none"></i>
+              <span id="date-display-1" class="pointer-events-none">Nov 02, 2025 - Nov 05, 2025</span>
             </button>
             <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors">
               <i class="fas fa-calendar-check text-base"></i>
@@ -478,9 +478,9 @@
           <div id="accounting-content" style="display: none;">
             <!-- Date Range and Export Buttons -->
             <section class="flex items-center justify-between mb-6">
-              <button id="date-picker-btn-2" class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors cursor-pointer">
-                <span id="date-display-2">Sep 9, 2024 - Sep 15, 2024</span>
-                <i class="fas fa-calendar text-base"></i>
+              <button type="button" id="date-picker-btn-2" class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors cursor-pointer">
+                <span id="date-display-2" class="pointer-events-none">Sep 9, 2024 - Sep 15, 2024</span>
+                <i class="fas fa-calendar text-base pointer-events-none"></i>
               </button>
               <div class="flex items-center gap-4">
                 <button class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors">
@@ -1493,16 +1493,6 @@
             console.log('Date picker button 2 clicked');
             openDatePicker('2');
           });
-          // Also make the icon clickable
-          const icon2 = datePickerBtn2.querySelector('i');
-          if (icon2) {
-            icon2.style.cursor = 'pointer';
-            icon2.addEventListener('click', (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              openDatePicker('2');
-            });
-          }
         } else {
           console.error('Date picker button 2 not found');
         }
