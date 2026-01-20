@@ -257,16 +257,6 @@
 
           <!-- Statistics Content -->
           <div id="statistics-content">
-          <!-- Date Picker for Statistics -->
-          <section class="mb-4 sm:mb-6">
-            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md inline-flex">
-              <button type="button" id="date-picker-btn-statistics" onclick="window.openDatePicker && window.openDatePicker('statistics'); return false;" class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] cursor-pointer">
-                <i class="fas fa-calendar-check text-lg pointer-events-none"></i>
-                <span id="date-display-statistics" class="pointer-events-none">Nov 02, 2025 - Nov 05, 2025</span>
-              </button>
-            </div>
-          </section>
-          
           <!-- KPI cards -->
           <section class="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <!-- Registered Users -->
@@ -1499,11 +1489,9 @@
         console.log('Setting up date picker buttons...');
         const datePickerBtn1 = document.getElementById('date-picker-btn-1');
         const datePickerBtn2 = document.getElementById('date-picker-btn-2');
-        const datePickerBtnStatistics = document.getElementById('date-picker-btn-statistics');
         
         console.log('Button 1 found:', !!datePickerBtn1);
         console.log('Button 2 found:', !!datePickerBtn2);
-        console.log('Statistics button found:', !!datePickerBtnStatistics);
         
         if (datePickerBtn1) {
           // Use both addEventListener and onclick as backup
