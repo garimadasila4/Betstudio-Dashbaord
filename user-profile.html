@@ -786,6 +786,39 @@
       </div>
     </div>
 
+    <!-- Date Picker Modal -->
+    <div id="date-picker-modal" class="fixed inset-0 z-[10000] flex items-center justify-center p-4" style="display: none;">
+      <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" onclick="closeDatePicker()"></div>
+      <div class="modal-panel relative z-10 w-full max-w-md rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl p-6">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-lg font-semibold text-[#111827]">Select Date Range</h3>
+          <button onclick="closeDatePicker()" class="p-2 rounded-full bg-[#f4f4f5] text-[#111827] hover:bg-[#e5e7eb] transition-colors z-20" aria-label="Close">
+            ✕
+          </button>
+        </div>
+        
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-[#111827] mb-2">Start Date</label>
+            <input type="date" id="start-date" class="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:border-transparent" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#111827] mb-2">End Date</label>
+            <input type="date" id="end-date" class="w-full px-4 py-2 border border-[#e5e7eb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2563eb] focus:border-transparent" />
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-end gap-3 mt-6">
+          <button onclick="closeDatePicker()" class="px-4 py-2 text-sm font-medium text-[#6b7280] hover:text-[#111827] transition-colors">
+            Cancel
+          </button>
+          <button onclick="applyDateRange()" class="px-4 py-2 text-sm font-medium text-white bg-[#2563eb] rounded-lg hover:bg-[#1d4ed8] transition-colors">
+            Apply
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Date Picker functionality
       let currentDatePickerTarget = null;
