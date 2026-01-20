@@ -167,11 +167,16 @@
       <div class="flex flex-1 flex-col">
         <!-- Header -->
         <header
-          class="flex items-center justify-between border-b border-[rgba(0,0,0,0.1)] bg-white px-7 py-5"
+          class="flex items-center justify-between border-b border-[rgba(0,0,0,0.1)] bg-white px-4 sm:px-7 py-3 sm:py-5"
           style="border-bottom-width: 0.5px;"
         >
           <!-- Breadcrumb -->
-          <div class="flex items-center gap-2">
+          <!-- Mobile Menu Button -->
+          <button class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors mr-2" onclick="toggleSidebar()">
+            <i class="fas fa-bars text-lg"></i>
+          </button>
+          <!-- Breadcrumb -->
+          <div class="flex items-center gap-2 flex-1 min-w-0">
             <div class="flex items-center gap-0">
               <a href="index.html" class="px-3 py-1 rounded-2xl text-sm leading-5 text-[rgba(0,0,0,0.4)] hover:bg-slate-50 transition-colors">
                 User Profile
@@ -187,17 +192,17 @@
             </div>
           </div>
 
-
-          
-                <i class="fas fa-bell text-base text-gray-700"></i>
-              </button>
-              <div class="w-6 h-6 rounded-full bg-[rgba(0,0,0,0.04)] overflow-hidden flex-shrink-0">
-                <img
-                  class="w-full h-full object-cover"
-                  src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80"
-                  alt="Avatar"
-                />
-              </div>
+          <!-- Right Section: Icons, Avatar -->
+          <div class="flex items-center gap-2 sm:gap-5">
+            <button class="w-7 h-7 flex items-center justify-center rounded-2xl hover:bg-slate-100 transition-colors min-w-[28px] min-h-[28px]">
+              <i class="fas fa-bell text-base text-gray-700"></i>
+            </button>
+            <div class="w-6 h-6 rounded-full bg-[rgba(0,0,0,0.04)] overflow-hidden flex-shrink-0">
+              <img
+                class="w-full h-full object-cover"
+                src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80"
+                alt="Avatar"
+              />
             </div>
           </div>
         </header>
