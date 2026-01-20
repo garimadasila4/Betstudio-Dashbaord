@@ -1459,7 +1459,6 @@
         }
 
         // Make functions globally available for onclick handlers
-        // Set these immediately so inline onclick can access them
         window.openDatePicker = openDatePicker;
         window.closeDatePicker = closeDatePicker;
         window.applyDateRange = applyDateRange;
@@ -1469,34 +1468,33 @@
         const datePickerBtn2 = document.getElementById('date-picker-btn-2');
         
         if (datePickerBtn1) {
+          // Try multiple approaches to ensure it works
+          datePickerBtn1.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Date picker button 1 clicked (onclick)');
+            openDatePicker('1');
+            return false;
+          };
           datePickerBtn1.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Date picker button 1 clicked');
+            console.log('Date picker button 1 clicked (addEventListener)');
             openDatePicker('1');
           });
-          console.log('Date picker button 1 event listener attached');
         } else {
-          console.error('Date picker button 1 not found!');
+          console.error('Date picker button 1 not found');
         }
         
         if (datePickerBtn2) {
-          // Use both addEventListener and onclick as backup
-          datePickerBtn2.onclick = function(e) {
+          datePickerBtn2.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Date picker button 2 clicked - onclick handler fired!');
-            openDatePicker('2');
-            return false;
-          };
-          datePickerBtn2.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Date picker button 2 clicked - addEventListener fired!');
+            console.log('Date picker button 2 clicked');
             openDatePicker('2');
           });
         } else {
-          console.error('Date picker button 2 not found!');
+          console.error('Date picker button 2 not found');
         }
 
         // Close on Escape key
