@@ -197,18 +197,16 @@
           </div>
 
           <!-- Right Section: Search, Icons, Avatar -->
-          <div class="flex items-center gap-5">
+          <div class="flex items-center gap-3 sm:gap-5 flex-1 justify-end">
             <!-- Search Input -->
-            <div class="flex items-center gap-2 bg-[rgba(0,0,0,0.04)] px-2 py-1 rounded-md w-40 overflow-hidden">
-              <div class="flex items-center gap-2 flex-1">
-                <i class="fas fa-magnifying-glass text-base text-[rgba(0,0,0,0.2)]"></i>
-                <input 
-                  type="text" 
-                  placeholder="Search" 
-                  class="flex-1 bg-transparent text-sm text-[rgba(0,0,0,0.2)] placeholder-[rgba(0,0,0,0.2)] outline-none border-none"
-                />
-              </div>
-              <div class="border border-[rgba(0,0,0,0.1)] rounded px-1 text-xs text-[rgba(0,0,0,0.2)] flex-shrink-0" style="border-width: 0.5px;">/</div>
+            <div class="hidden sm:flex items-center gap-2 bg-[rgba(0,0,0,0.04)] px-3 py-2 rounded-lg min-w-[200px] sm:min-w-[300px] lg:min-w-[400px] max-w-[500px] flex-1">
+              <i class="fas fa-magnifying-glass text-base text-[rgba(0,0,0,0.4)]"></i>
+              <input 
+                type="text" 
+                placeholder="Search..." 
+                class="flex-1 bg-transparent text-sm text-[rgba(0,0,0,0.7)] placeholder-[rgba(0,0,0,0.4)] outline-none border-none"
+              />
+              <div class="border border-[rgba(0,0,0,0.1)] rounded px-1.5 py-0.5 text-xs text-[rgba(0,0,0,0.3)] flex-shrink-0" style="border-width: 0.5px;">/</div>
             </div>
 
             <!-- Icon Buttons -->
