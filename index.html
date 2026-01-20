@@ -1464,9 +1464,17 @@
         }
 
         // Make functions globally available for onclick handlers
+        // Set these immediately so inline onclick can access them
         window.openDatePicker = openDatePicker;
         window.closeDatePicker = closeDatePicker;
         window.applyDateRange = applyDateRange;
+        
+        // Also set them before DOMContentLoaded in case buttons load first
+        if (!window.openDatePicker) {
+          window.openDatePicker = openDatePicker;
+          window.closeDatePicker = closeDatePicker;
+          window.applyDateRange = applyDateRange;
+        }
 
         // Add event listeners for date picker buttons
         console.log('Setting up date picker buttons...');
