@@ -1407,21 +1407,28 @@
         const endDateInput = document.getElementById('end-date');
 
         function openDatePicker(targetId) {
+          console.log('openDatePicker called with targetId:', targetId);
           if (!datePickerModal) {
             console.error('Date picker modal not found');
             return;
           }
+          console.log('Opening date picker modal');
           currentDatePickerTarget = targetId;
           datePickerModal.style.display = 'flex';
+          datePickerModal.style.opacity = '1';
           datePickerModal.classList.add('is-open');
           document.body.classList.add('modal-open');
           document.body.style.overflow = 'hidden';
+          console.log('Modal should be visible now. Display:', datePickerModal.style.display);
         }
 
         function closeDatePicker() {
+          console.log('closeDatePicker called');
           if (!datePickerModal) return;
           datePickerModal.style.display = 'none';
           datePickerModal.classList.remove('is-open');
+          datePickerModal.style.opacity = '0';
+          datePickerModal.style.pointerEvents = 'none';
           document.body.classList.remove('modal-open');
           document.body.style.overflow = '';
           currentDatePickerTarget = null;
@@ -1462,39 +1469,49 @@
         window.applyDateRange = applyDateRange;
 
         // Add event listeners for date picker buttons
+        console.log('Setting up date picker buttons...');
         const datePickerBtn1 = document.getElementById('date-picker-btn-1');
         const datePickerBtn2 = document.getElementById('date-picker-btn-2');
         
+        console.log('Button 1 found:', !!datePickerBtn1);
+        console.log('Button 2 found:', !!datePickerBtn2);
+        
         if (datePickerBtn1) {
-          datePickerBtn1.addEventListener('click', (e) => {
+          // Use both addEventListener and onclick as backup
+          datePickerBtn1.onclick = function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Date picker button 1 clicked');
+            console.log('Date picker button 1 clicked - onclick handler fired!');
+            openDatePicker('1');
+            return false;
+          };
+          datePickerBtn1.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Date picker button 1 clicked - addEventListener fired!');
             openDatePicker('1');
           });
-          // Also make the icon clickable
-          const icon1 = datePickerBtn1.querySelector('i');
-          if (icon1) {
-            icon1.style.cursor = 'pointer';
-            icon1.addEventListener('click', (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              openDatePicker('1');
-            });
-          }
         } else {
-          console.error('Date picker button 1 not found');
+          console.error('Date picker button 1 not found!');
         }
         
         if (datePickerBtn2) {
-          datePickerBtn2.addEventListener('click', (e) => {
+          // Use both addEventListener and onclick as backup
+          datePickerBtn2.onclick = function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Date picker button 2 clicked');
+            console.log('Date picker button 2 clicked - onclick handler fired!');
+            openDatePicker('2');
+            return false;
+          };
+          datePickerBtn2.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Date picker button 2 clicked - addEventListener fired!');
             openDatePicker('2');
           });
         } else {
-          console.error('Date picker button 2 not found');
+          console.error('Date picker button 2 not found!');
         }
 
         // Close on Escape key
