@@ -1496,20 +1496,31 @@
         console.log('Button 2 found:', !!datePickerBtn2);
         
         if (datePickerBtn1) {
-          // Use both addEventListener and onclick as backup
+          // Remove existing onclick to avoid conflicts
+          datePickerBtn1.removeAttribute('onclick');
+          // Use addEventListener for better control
+          datePickerBtn1.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Date picker button 1 clicked - opening calendar');
+            if (window.openDatePicker) {
+              window.openDatePicker('1');
+            } else {
+              openDatePicker('1');
+            }
+          });
+          // Also set onclick as backup
           datePickerBtn1.onclick = function(e) {
             e.preventDefault();
             e.stopPropagation();
             console.log('Date picker button 1 clicked - onclick handler fired!');
-            openDatePicker('1');
+            if (window.openDatePicker) {
+              window.openDatePicker('1');
+            } else {
+              openDatePicker('1');
+            }
             return false;
           };
-          datePickerBtn1.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Date picker button 1 clicked - addEventListener fired!');
-            openDatePicker('1');
-          });
         } else {
           console.error('Date picker button 1 not found!');
         }
