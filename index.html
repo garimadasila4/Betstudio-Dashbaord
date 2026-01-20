@@ -233,7 +233,7 @@
           <!-- Tabs Section -->
           <section class="flex items-center gap-4">
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
-              <button type="button" id="date-picker-btn-1" class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] cursor-pointer">
+              <button type="button" id="date-picker-btn-1" onclick="if(window.openDatePicker){window.openDatePicker('1');} return false;" class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] cursor-pointer hover:shadow-md transition-shadow">
                 <i class="fas fa-calendar-check text-lg pointer-events-none"></i>
                 <span id="date-display-1" class="pointer-events-none">Nov 02, 2025 - Nov 05, 2025</span>
               </button>
