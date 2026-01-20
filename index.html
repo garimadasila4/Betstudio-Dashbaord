@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
@@ -51,7 +51,8 @@
     <div class="flex min-h-screen">
       <!-- Sidebar -->
       <aside
-        class="hidden w-[212px] flex-shrink-0 flex-col gap-2 border-r border-[rgba(0,0,0,0.1)] bg-white p-4 lg:flex"
+        class="fixed lg:static inset-y-0 left-0 z-50 w-[212px] flex-shrink-0 flex-col gap-2 border-r border-[rgba(0,0,0,0.1)] bg-white p-2 sm:p-4 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 lg:flex flex-col"
+        id="sidebar"
       >
         <!-- Logo -->
         <div class="flex items-center gap-2 p-2">
@@ -175,11 +176,15 @@
       <div class="flex flex-1 flex-col">
         <!-- Header -->
         <header
-          class="flex items-center justify-between border-b border-[rgba(0,0,0,0.1)] bg-white px-7 py-5"
+          class="flex items-center justify-between border-b border-[rgba(0,0,0,0.1)] bg-white px-4 sm:px-7 py-3 sm:py-5"
           style="border-bottom-width: 0.5px;"
         >
+          <!-- Mobile Menu Button -->
+          <button class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors mr-2" onclick="toggleSidebar()">
+            <i class="fas fa-bars text-lg"></i>
+          </button>
           <!-- Breadcrumb -->
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 flex-1 min-w-0">
             <div class="flex items-center gap-0">
               <a href="index.html" class="px-3 py-1 rounded-2xl text-sm leading-5 text-[rgba(0,0,0,0.4)] hover:bg-slate-50 transition-colors">
                 Dashboards
@@ -226,7 +231,7 @@
         </header>
 
         <!-- Content body -->
-        <main class="flex flex-1 flex-col gap-6 bg-[#f9f9fa] p-10">
+        <main class="flex flex-1 flex-col gap-4 sm:gap-6 bg-[#f9f9fa] p-4 sm:p-6 lg:p-10">
           <!-- Tabs Section -->
           <section class="flex items-center gap-4">
             <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors">
@@ -255,7 +260,7 @@
           <!-- Statistics Content -->
           <div id="statistics-content">
           <!-- KPI cards -->
-          <section class="grid gap-5 grid-cols-4">
+          <section class="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <!-- Registered Users -->
             <article id="registered-users-card" class="rounded-xl border-4 border-[#fdfdfd] bg-white p-5 shadow-sm hover:shadow-md transition-shadow min-h-[140px] flex items-center cursor-pointer">
               <div class="flex items-center justify-between gap-8 w-full">
@@ -334,7 +339,7 @@
           </section>
 
           <!-- Charts and Tables Section -->
-          <section class="grid gap-6 grid-cols-3 items-stretch">
+          <section class="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-3 items-stretch">
             <!-- GGR Chart Block -->
             <article class="col-span-2 rounded-lg bg-[#f9f9fa] p-6 flex flex-col">
               <div class="bg-white rounded-lg p-6 flex-1 flex flex-col">
@@ -406,7 +411,7 @@
           </section>
 
           <!-- NGR Chart and Table Section -->
-          <section class="grid gap-6 grid-cols-3 items-stretch">
+          <section class="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-3 items-stretch">
             <!-- NGR Chart Block -->
             <article class="col-span-2 rounded-lg bg-[#f9f9fa] p-6 flex flex-col">
               <div class="bg-white rounded-lg p-6 flex-1 flex flex-col">
@@ -762,9 +767,9 @@
     </div>
 
     <!-- Registered Users Analytics Modal -->
-    <div id="registered-users-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center" style="display: none;">
+    <div id="registered-users-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
-      <div class="modal-panel relative z-10 w-[1147px] h-[400px] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden">
+      <div class="modal-panel relative z-10 w-[95vw] max-w-[1147px] h-auto min-h-[400px] max-h-[90vh] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden mx-4 sm:mx-0">
         <div class="flex items-center justify-between px-10 pt-8 pb-2">
           <div class="flex items-center gap-4">
             <div class="flex items-center gap-3">
@@ -791,7 +796,7 @@
 
         <div class="flex gap-6 px-10 pt-6">
           <!-- Widget 1 -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Users Registration</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -830,7 +835,7 @@
           </div>
 
           <!-- Widget 2 -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">By Direct Players</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -869,7 +874,7 @@
           </div>
 
           <!-- Widget 3 -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">By Agents/ Sub agents</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -911,7 +916,7 @@
     </div>
 
     <!-- Total Bonus Analytics Modal -->
-    <div id="total-bonus-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center" style="display: none;">
+    <div id="total-bonus-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
       <div class="modal-panel relative z-10 w-[852px] h-[400px] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden">
         <div class="flex items-center justify-between px-10 pt-8 pb-2">
@@ -940,7 +945,7 @@
 
         <div class="flex gap-6 px-10 pt-6">
           <!-- Widget 1: Bonus as cashed -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Bonus as cashed</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -979,7 +984,7 @@
           </div>
 
           <!-- Widget 2: Bonus Released -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Bonus Released</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -1021,7 +1026,7 @@
     </div>
 
     <!-- Total Deposit Analytics Modal -->
-    <div id="total-deposit-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center" style="display: none;">
+    <div id="total-deposit-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
       <div class="modal-panel relative z-10 w-[852px] h-[400px] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden">
         <div class="flex items-center justify-between px-10 pt-8 pb-2">
@@ -1050,7 +1055,7 @@
 
         <div class="flex gap-6 px-10 pt-6">
           <!-- Widget 1: Direct Deposits -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Direct Deposits</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -1089,7 +1094,7 @@
           </div>
 
           <!-- Widget 2: Agent Deposits -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Agent Deposits</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -1131,9 +1136,9 @@
     </div>
 
     <!-- Total Withdrawal Analytics Modal -->
-    <div id="total-withdrawal-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center" style="display: none;">
+    <div id="total-withdrawal-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
-      <div class="modal-panel relative z-10 w-[1147px] min-h-[642px] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden">
+      <div class="modal-panel relative z-10 w-[95vw] max-w-[1147px] min-h-[400px] max-h-[90vh] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden mx-4 sm:mx-0 overflow-y-auto">
         <div class="flex items-center justify-between px-14 pt-8 pb-2">
           <div class="flex items-center gap-4">
             <div class="flex items-center gap-3">
@@ -1160,9 +1165,9 @@
 
         <div class="flex flex-col">
         <!-- Row 1: 3 widgets -->
-        <div class="flex gap-6 px-14 pt-10">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 px-4 sm:px-6 lg:px-14 pt-6 sm:pt-8 lg:pt-10">
           <!-- Widget 1: By Direct Players -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">By Direct Players</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -1201,7 +1206,7 @@
           </div>
 
           <!-- Widget 2: By Agents/ Sub agents -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">By Agents/ Sub agents</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -1240,7 +1245,7 @@
           </div>
 
           <!-- Widget 3: Unique Players -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Unique Players</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -1282,7 +1287,7 @@
         <!-- Row 2: 2 widgets -->
         <div class="flex gap-6 px-14 pt-10 pb-10 mb-10">
           <!-- Widget 4: PGS Withdraw -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">PGS Withdraw</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -1321,7 +1326,7 @@
           </div>
 
           <!-- Widget 5: Cash Withdraw -->
-          <div class="analytics-widget w-[320px] h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
+          <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Cash Withdraw</p>
             <p class="text-xs text-[#6b7280] mt-1">Last 4 days</p>
             <div class="mt-4 space-y-3 text-xs text-[#6b7280]">
@@ -1363,6 +1368,23 @@
     </div>
 
     <script>
+      // Mobile menu toggle
+      function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) {
+          sidebar.classList.toggle('-translate-x-full');
+        }
+      }
+      
+      // Close sidebar when clicking outside on mobile
+      document.addEventListener('click', function(event) {
+        const sidebar = document.getElementById('sidebar');
+        const menuButton = event.target.closest('[onclick="toggleSidebar()"]');
+        if (sidebar && !sidebar.contains(event.target) && !menuButton && window.innerWidth < 1024) {
+          sidebar.classList.add('-translate-x-full');
+        }
+      });
+
       // GGR Chart
       const ggrCtx = document.getElementById("ggrChart");
       if (ggrCtx) {
