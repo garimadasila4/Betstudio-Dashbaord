@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile - Transactions History</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <!-- Phosphor Icons - Using esm.sh CDN (better ES module support) -->
-    <script type="module">
-      import 'https://esm.sh/@phosphor-icons/web@2.1.1';
-    </script>
+    <!-- Font Awesome Icons - Works reliably on GitHub Pages -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
       tailwind.config = {
         theme: {
@@ -62,31 +60,31 @@
             href="index.html"
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-chart-pie-slice class="text-lg" weight="regular"></ph-chart-pie-slice>
+            <i class="fas fa-chart-pie-slice text-lg"></i>
             <span>Statistics</span>
           </a>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-eye class="text-lg" weight="regular"></ph-eye>
+            <i class="fas fa-eye text-lg"></i>
             <span>Overview</span>
           </button>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-tray-arrow-down class="text-lg" weight="regular"></ph-tray-arrow-down>
+            <i class="fas fa-tray-arrow-down text-lg"></i>
             <span>Retention</span>
           </button>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-gift class="text-lg" weight="regular"></ph-gift>
+            <i class="fas fa-gift text-lg"></i>
             <span>Bonus</span>
           </button>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-megaphone class="text-lg" weight="regular"></ph-megaphone>
+            <i class="fas fa-megaphone text-lg"></i>
             <span>Deposit Trigger</span>
           </button>
         </div>
@@ -97,7 +95,7 @@
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-identification-badge class="text-lg" weight="regular"></ph-identification-badge>
+            <i class="fas fa-identification-badge text-lg"></i>
             <span>User Profile</span>
           </button>
           <a
@@ -128,37 +126,37 @@
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-chart-line-up class="text-lg" weight="regular"></ph-chart-line-up>
+            <i class="fas fa-chart-line-up text-lg"></i>
             <span>Reports</span>
           </button>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-dice-five class="text-lg" weight="regular"></ph-dice-five>
+            <i class="fas fa-dice-five text-lg"></i>
             <span>Games</span>
           </button>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-gift class="text-lg" weight="regular"></ph-gift>
+            <i class="fas fa-gift text-lg"></i>
             <span>Bonus</span>
           </button>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-hand-arrow-down class="text-lg" weight="regular"></ph-hand-arrow-down>
+            <i class="fas fa-hand-arrow-down text-lg"></i>
             <span>Withdrawal</span>
           </button>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-megaphone class="text-lg" weight="regular"></ph-megaphone>
+            <i class="fas fa-megaphone text-lg"></i>
             <span>Promotions</span>
           </button>
           <button
             class="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-black transition hover:bg-[rgba(0,0,0,0.04)]"
           >
-            <ph-gear class="text-lg" weight="regular"></ph-gear>
+            <i class="fas fa-gear text-lg"></i>
             <span>Settings</span>
           </button>
         </div>
@@ -182,7 +180,7 @@
                 My Players
               </a>
               <button class="ml-2 flex items-center gap-1 bg-black text-white px-3 py-1 rounded text-sm leading-5 hover:bg-gray-800 transition-colors">
-                <ph-plus class="text-base" weight="regular"></ph-plus>
+                <i class="fas fa-plus text-base"></i>
                 <span>Add User</span>
               </button>
             </div>
@@ -193,7 +191,7 @@
             <!-- Search Input -->
             <div class="flex items-center gap-2 bg-[rgba(0,0,0,0.04)] px-2 py-1 rounded-md w-40 overflow-hidden">
               <div class="flex items-center gap-2 flex-1">
-                <ph-magnifying-glass class="text-base text-[rgba(0,0,0,0.2)]" weight="regular"></ph-magnifying-glass>
+                <i class="fas fa-magnifying-glass text-base text-[rgba(0,0,0,0.2)]"></i>
                 <input 
                   type="text" 
                   placeholder="Search" 
@@ -206,10 +204,10 @@
             <!-- Icon Buttons -->
             <div class="flex items-center gap-2">
               <button class="w-7 h-7 flex items-center justify-center rounded-2xl hover:bg-slate-100 transition-colors min-w-[28px] min-h-[28px]">
-                <ph-sun class="text-base text-gray-700" weight="regular"></ph-sun>
+                <i class="fas fa-sun text-base text-gray-700"></i>
               </button>
               <button class="w-7 h-7 flex items-center justify-center rounded-2xl hover:bg-slate-100 transition-colors min-w-[28px] min-h-[28px]">
-                <ph-bell class="text-base text-gray-700" weight="regular"></ph-bell>
+                <i class="fas fa-bell text-base text-gray-700"></i>
               </button>
               <div class="w-6 h-6 rounded-full bg-[rgba(0,0,0,0.04)] overflow-hidden flex-shrink-0">
                 <img
@@ -228,25 +226,25 @@
           <section class="flex items-center gap-6 mb-8">
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
               <button class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
-                <ph-calendar-check class="text-lg" weight="regular"></ph-calendar-check>
+                <i class="fas fa-calendar-check text-lg"></i>
                 <span>Nov 02, 2025 - Nov 05, 2025</span>
               </button>
             </div>
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
               <button class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
-                <ph-calendar-check class="text-lg" weight="regular"></ph-calendar-check>
+                <i class="fas fa-calendar-check text-lg"></i>
                 <span>Filter by Name / Email/ Mobile Number</span>
               </button>
             </div>
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
               <button class="bg-white flex items-center gap-1 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
-                <ph-plus class="text-lg" weight="regular"></ph-plus>
+                <i class="fas fa-plus text-lg"></i>
                 <span>Add Agent</span>
               </button>
             </div>
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
               <button class="bg-white flex items-center gap-1 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
-                <ph-plus class="text-lg" weight="regular"></ph-plus>
+                <i class="fas fa-plus text-lg"></i>
                 <span>Add Source</span>
               </button>
             </div>
@@ -254,7 +252,7 @@
               id="registered-users-card"
               class="ml-auto flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-white px-4 py-2 text-sm font-semibold text-[#111827] hover:bg-[#f9fafb] transition-colors"
             >
-              <ph-shield-checkered class="text-base text-[#2563eb]" weight="regular"></ph-shield-checkered>
+              <i class="fas fa-shield-checkered text-base text-[#2563eb]"></i>
               <span>Registered Users</span>
             </button>
           </section>
@@ -266,7 +264,7 @@
           <section class="flex items-center justify-between mb-6">
             <button class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors">
               <span>Sep 9, 2024 - Sep 15, 2024</span>
-              <ph-calendar-alt class="text-base" weight="regular"></ph-calendar-alt>
+              <i class="fas fa-calendar-alt text-base"></i>
             </button>
             <div class="flex items-center gap-4">
               <button class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors">
@@ -332,19 +330,19 @@
                 </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
-                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                    <i class="fas fa-eye text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
-                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                    <i class="fas fa-cardholder text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
-                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                    <i class="fas fa-prohibit text-base text-[#ef4444]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
-                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                    <i class="fas fa-wrench text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
-                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                    <i class="fas fa-note-pencil text-base text-[#121212]"></i>
                   </button>
                 </div>
               </div>
@@ -376,19 +374,19 @@
                 </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
-                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                    <i class="fas fa-eye text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
-                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                    <i class="fas fa-cardholder text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
-                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                    <i class="fas fa-prohibit text-base text-[#ef4444]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
-                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                    <i class="fas fa-wrench text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
-                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                    <i class="fas fa-note-pencil text-base text-[#121212]"></i>
                   </button>
                 </div>
               </div>
@@ -420,19 +418,19 @@
                 </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
-                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                    <i class="fas fa-eye text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
-                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                    <i class="fas fa-cardholder text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
-                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                    <i class="fas fa-prohibit text-base text-[#ef4444]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
-                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                    <i class="fas fa-wrench text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
-                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                    <i class="fas fa-note-pencil text-base text-[#121212]"></i>
                   </button>
                 </div>
               </div>
@@ -464,19 +462,19 @@
                 </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
-                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                    <i class="fas fa-eye text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
-                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                    <i class="fas fa-cardholder text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
-                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                    <i class="fas fa-prohibit text-base text-[#ef4444]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
-                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                    <i class="fas fa-wrench text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
-                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                    <i class="fas fa-note-pencil text-base text-[#121212]"></i>
                   </button>
                 </div>
               </div>
@@ -508,19 +506,19 @@
                 </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
-                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                    <i class="fas fa-eye text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
-                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                    <i class="fas fa-cardholder text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
-                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                    <i class="fas fa-prohibit text-base text-[#ef4444]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
-                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                    <i class="fas fa-wrench text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
-                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                    <i class="fas fa-note-pencil text-base text-[#121212]"></i>
                   </button>
                 </div>
               </div>
@@ -552,19 +550,19 @@
                 </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
-                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                    <i class="fas fa-eye text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
-                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                    <i class="fas fa-cardholder text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
-                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                    <i class="fas fa-prohibit text-base text-[#ef4444]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
-                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                    <i class="fas fa-wrench text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
-                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                    <i class="fas fa-note-pencil text-base text-[#121212]"></i>
                   </button>
                 </div>
               </div>
@@ -596,19 +594,19 @@
                 </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
-                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                    <i class="fas fa-eye text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
-                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                    <i class="fas fa-cardholder text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
-                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                    <i class="fas fa-prohibit text-base text-[#ef4444]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
-                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                    <i class="fas fa-wrench text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
-                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                    <i class="fas fa-note-pencil text-base text-[#121212]"></i>
                   </button>
                 </div>
               </div>
@@ -640,19 +638,19 @@
                 </div>
                 <div class="absolute left-[1433px] top-[29px] flex items-center gap-[6px]" onclick="event.stopPropagation()">
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="View">
-                    <ph-eye class="text-base text-[#121212]" weight="regular"></ph-eye>
+                    <i class="fas fa-eye text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Cardholder">
-                    <ph-cardholder class="text-base text-[#121212]" weight="regular"></ph-cardholder>
+                    <i class="fas fa-cardholder text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Prohibit">
-                    <ph-prohibit class="text-base text-[#ef4444]" weight="regular"></ph-prohibit>
+                    <i class="fas fa-prohibit text-base text-[#ef4444]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Settings">
-                    <ph-wrench class="text-base text-[#121212]" weight="regular"></ph-wrench>
+                    <i class="fas fa-wrench text-base text-[#121212]"></i>
                   </button>
                   <button class="w-6 h-6 flex items-center justify-center hover:bg-[#f5f5f5] rounded transition-colors" title="Edit">
-                    <ph-note-pencil class="text-base text-[#121212]" weight="regular"></ph-note-pencil>
+                    <i class="fas fa-note-pencil text-base text-[#121212]"></i>
                   </button>
                 </div>
               </div>
@@ -672,19 +670,19 @@
         <div class="flex items-center justify-between px-10 pt-8">
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-lg bg-[#f1f5ff] flex items-center justify-center">
-              <ph-shield-checkered class="text-lg text-[#2563eb]" weight="regular"></ph-shield-checkered>
+              <i class="fas fa-shield-checkered text-lg text-[#2563eb]"></i>
             </div>
             <div>
               <p class="text-lg font-semibold text-[#111827]">Registered User Analytics</p>
               <p class="text-sm text-[#6b7280]">Overview</p>
             </div>
             <div class="ml-6 flex items-center gap-2 text-[#00b69b]">
-              <ph-arrow-up-right class="text-lg" weight="regular"></ph-arrow-up-right>
+              <i class="fas fa-arrow-up-right text-lg"></i>
               <span class="text-sm font-semibold">1.3% Up from past week</span>
             </div>
           </div>
           <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[#e5e7eb] bg-white text-sm hover:bg-slate-50 transition-colors">
-            <ph-calendar-check class="text-base" weight="regular"></ph-calendar-check>
+            <i class="fas fa-calendar-check text-base"></i>
             <span>Nov 02, 2025 - Nov 05, 2025</span>
           </button>
         </div>
