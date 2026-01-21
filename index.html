@@ -232,29 +232,30 @@
         <main class="flex flex-1 flex-col gap-4 sm:gap-6 bg-[#f9f9fa] p-4 sm:p-6 lg:p-10">
           <!-- Tabs Section -->
           <section class="flex flex-wrap items-center gap-2 sm:gap-4">
-            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
-              <button type="button" id="date-picker-btn-1" onclick="if(window.openDatePicker){window.openDatePicker('1');} return false;" class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] cursor-pointer hover:shadow-md transition-shadow whitespace-nowrap">
-                <i class="fas fa-calendar-check text-lg pointer-events-none"></i>
+            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md w-full sm:w-auto">
+              <button type="button" id="date-picker-btn-1" onclick="if(window.openDatePicker){window.openDatePicker('1');} return false;" class="bg-white flex items-center gap-2 px-2 sm:gap-2.5 sm:px-3 py-1.5 rounded shadow-sm text-xs sm:text-sm font-medium text-[#18181b] cursor-pointer hover:shadow-md transition-shadow w-full sm:w-auto justify-center sm:justify-start">
+                <i class="fas fa-calendar-check text-base sm:text-lg pointer-events-none"></i>
                 <span id="date-display-1" class="pointer-events-none hidden sm:inline">Nov 02, 2025 - Nov 05, 2025</span>
                 <span id="date-display-1-mobile" class="pointer-events-none sm:hidden">Date</span>
               </button>
             </div>
-            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors whitespace-nowrap">
-              <i class="fas fa-calendar-check text-base"></i>
+            <button class="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-xs sm:text-sm hover:bg-slate-50 transition-colors whitespace-nowrap w-full sm:w-auto justify-center sm:justify-start">
+              <i class="fas fa-calendar-check text-sm sm:text-base"></i>
               <span class="hidden sm:inline">Date Today</span>
               <span class="sm:hidden">Today</span>
             </button>
-            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors whitespace-nowrap">
-              <i class="fas fa-calendar-check text-base"></i>
+            <button class="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-xs sm:text-sm hover:bg-slate-50 transition-colors whitespace-nowrap w-full sm:w-auto justify-center sm:justify-start">
+              <i class="fas fa-calendar-check text-sm sm:text-base"></i>
               <span class="hidden lg:inline">Wallet type filter Bonus</span>
-              <span class="lg:hidden">Filter</span>
+              <span class="lg:hidden hidden sm:inline">Filter Bonus</span>
+              <span class="sm:hidden">Filter</span>
             </button>
             <!-- Statistics/Accounting Toggle -->
-            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md h-10 ml-auto" id="stats-accounting-toggle">
-              <button class="bg-white px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] h-8 toggle-btn active" data-tab="statistics">
+            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md h-10 w-full sm:w-auto ml-0 sm:ml-auto" id="stats-accounting-toggle">
+              <button class="bg-white px-2 sm:px-3 py-1.5 rounded shadow-sm text-xs sm:text-sm font-medium text-[#18181b] h-8 toggle-btn active" data-tab="statistics">
                 Statistics
               </button>
-              <button class="px-3 py-1.5 rounded text-sm font-medium text-[#71717a] h-8 toggle-btn" data-tab="accounting">
+              <button class="px-2 sm:px-3 py-1.5 rounded text-xs sm:text-sm font-medium text-[#71717a] h-8 toggle-btn" data-tab="accounting">
                 Accounting
               </button>
             </div>
