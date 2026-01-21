@@ -199,7 +199,7 @@
           <!-- Right Section: Search, Icons, Avatar -->
           <div class="flex items-center gap-3 sm:gap-5">
             <!-- Search Input -->
-            <div class="hidden sm:flex items-center relative w-[300px]">
+            <div class="hidden sm:flex items-center relative w-full max-w-[300px]">
               <i class="fas fa-magnifying-glass absolute left-4 text-base text-[#9ca3af] pointer-events-none z-10"></i>
               <input 
                 type="text" 
@@ -231,23 +231,26 @@
         <!-- Content body -->
         <main class="flex flex-1 flex-col gap-4 sm:gap-6 bg-[#f9f9fa] p-4 sm:p-6 lg:p-10">
           <!-- Tabs Section -->
-          <section class="flex items-center gap-4">
+          <section class="flex flex-wrap items-center gap-2 sm:gap-4">
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
-              <button type="button" id="date-picker-btn-1" onclick="if(window.openDatePicker){window.openDatePicker('1');} return false;" class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] cursor-pointer hover:shadow-md transition-shadow">
+              <button type="button" id="date-picker-btn-1" onclick="if(window.openDatePicker){window.openDatePicker('1');} return false;" class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] cursor-pointer hover:shadow-md transition-shadow whitespace-nowrap">
                 <i class="fas fa-calendar-check text-lg pointer-events-none"></i>
-                <span id="date-display-1" class="pointer-events-none">Nov 02, 2025 - Nov 05, 2025</span>
+                <span id="date-display-1" class="pointer-events-none hidden sm:inline">Nov 02, 2025 - Nov 05, 2025</span>
+                <span id="date-display-1-mobile" class="pointer-events-none sm:hidden">Date</span>
               </button>
             </div>
-            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors">
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors whitespace-nowrap">
               <i class="fas fa-calendar-check text-base"></i>
-              <span>Date Today</span>
+              <span class="hidden sm:inline">Date Today</span>
+              <span class="sm:hidden">Today</span>
             </button>
-            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors">
+            <button class="flex items-center gap-2 px-3 py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-sm hover:bg-slate-50 transition-colors whitespace-nowrap">
               <i class="fas fa-calendar-check text-base"></i>
-              <span>Wallet type filter Bonus</span>
+              <span class="hidden lg:inline">Wallet type filter Bonus</span>
+              <span class="lg:hidden">Filter</span>
             </button>
             <!-- Statistics/Accounting Toggle -->
-            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md h-10" id="stats-accounting-toggle">
+            <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md h-10 ml-auto" id="stats-accounting-toggle">
               <button class="bg-white px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] h-8 toggle-btn active" data-tab="statistics">
                 Statistics
               </button>
@@ -770,7 +773,7 @@
     <div id="registered-users-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
       <div class="modal-panel relative z-10 w-[95vw] max-w-[1147px] h-auto min-h-[400px] max-h-[90vh] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden mx-4 sm:mx-0">
-        <div class="flex items-center justify-between px-10 pt-8 pb-2">
+        <div class="flex flex-wrap items-center justify-between gap-4 px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 pb-2">
           <div class="flex items-center gap-4">
             <div class="flex items-center gap-3">
               <div class="w-6 h-6 rounded-lg bg-[#f1f5ff] flex items-center justify-center">
@@ -794,7 +797,7 @@
           </div>
         </div>
 
-        <div class="flex gap-6 px-10 pt-6">
+        <div class="flex flex-wrap gap-4 sm:gap-6 px-4 sm:px-6 lg:px-10 pt-4 sm:pt-6">
           <!-- Widget 1 -->
           <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Users Registration</p>
@@ -918,8 +921,8 @@
     <!-- Total Bonus Analytics Modal -->
     <div id="total-bonus-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
-      <div class="modal-panel relative z-10 w-[852px] h-[400px] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden">
-        <div class="flex items-center justify-between px-10 pt-8 pb-2">
+      <div class="modal-panel relative z-10 w-[95vw] max-w-[852px] h-auto min-h-[400px] max-h-[90vh] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden mx-4 sm:mx-0">
+        <div class="flex flex-wrap items-center justify-between gap-4 px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 pb-2">
           <div class="flex items-center gap-4">
             <div class="flex items-center gap-3">
               <div class="w-6 h-6 rounded-lg bg-[#f1f5ff] flex items-center justify-center">
@@ -943,7 +946,7 @@
           </div>
         </div>
 
-        <div class="flex gap-6 px-10 pt-6">
+        <div class="flex flex-wrap gap-4 sm:gap-6 px-4 sm:px-6 lg:px-10 pt-4 sm:pt-6">
           <!-- Widget 1: Bonus as cashed -->
           <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Bonus as cashed</p>
@@ -1028,8 +1031,8 @@
     <!-- Total Deposit Analytics Modal -->
     <div id="total-deposit-modal" class="registered-modal fixed inset-0 z-[9999] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
-      <div class="modal-panel relative z-10 w-[852px] h-[400px] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden">
-        <div class="flex items-center justify-between px-10 pt-8 pb-2">
+      <div class="modal-panel relative z-10 w-[95vw] max-w-[852px] h-auto min-h-[400px] max-h-[90vh] rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl overflow-hidden mx-4 sm:mx-0">
+        <div class="flex flex-wrap items-center justify-between gap-4 px-4 sm:px-6 lg:px-10 pt-6 sm:pt-8 pb-2">
           <div class="flex items-center gap-4">
             <div class="flex items-center gap-3">
               <div class="w-6 h-6 rounded-lg bg-[#f1f5ff] flex items-center justify-center">
@@ -1053,7 +1056,7 @@
           </div>
         </div>
 
-        <div class="flex gap-6 px-10 pt-6">
+        <div class="flex flex-wrap gap-4 sm:gap-6 px-4 sm:px-6 lg:px-10 pt-4 sm:pt-6">
           <!-- Widget 1: Direct Deposits -->
           <div class="analytics-widget w-full sm:w-[320px] h-auto min-h-[256px] rounded-xl border border-[#eef2f7] bg-white p-4">
             <p class="text-base font-semibold text-[#111827]">Direct Deposits</p>

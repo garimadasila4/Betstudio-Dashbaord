@@ -212,15 +212,17 @@
           <!-- Filter Tabs Section -->
           <section class="flex items-center gap-6 mb-8">
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
-              <button type="button" id="date-picker-btn-1" class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] cursor-pointer">
+              <button type="button" id="date-picker-btn-1" class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] cursor-pointer whitespace-nowrap">
                 <i class="fas fa-calendar-check text-lg pointer-events-none"></i>
-                <span id="date-display-1" class="pointer-events-none">Nov 02, 2025 - Nov 05, 2025</span>
+                <span id="date-display-1" class="pointer-events-none hidden sm:inline">Nov 02, 2025 - Nov 05, 2025</span>
+                <span id="date-display-1-mobile" class="pointer-events-none sm:hidden">Date</span>
               </button>
             </div>
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
-              <button class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b]">
+              <button class="bg-white flex items-center gap-2.5 px-3 py-1.5 rounded shadow-sm text-sm font-medium text-[#18181b] whitespace-nowrap">
                 <i class="fas fa-calendar-check text-lg"></i>
-                <span>Filter by Name / Email/ Mobile Number</span>
+                <span class="hidden lg:inline">Filter by Name / Email/ Mobile Number</span>
+                <span class="lg:hidden">Filter</span>
               </button>
             </div>
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md">
