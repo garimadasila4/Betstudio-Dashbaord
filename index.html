@@ -1453,15 +1453,25 @@
           }
           console.log('Date picker modal found, opening...');
           currentDatePickerTarget = targetId;
+          
+          // Force show the modal
           datePickerModal.style.display = 'flex';
+          datePickerModal.style.visibility = 'visible';
           datePickerModal.style.opacity = '1';
           datePickerModal.style.pointerEvents = 'auto';
+          datePickerModal.style.zIndex = '10000';
           datePickerModal.classList.add('is-open');
+          
+          // Prevent body scroll
           document.body.classList.add('modal-open');
           document.body.style.overflow = 'hidden';
+          
           console.log('Modal display:', datePickerModal.style.display);
           console.log('Modal opacity:', datePickerModal.style.opacity);
+          console.log('Modal visibility:', datePickerModal.style.visibility);
+          console.log('Modal z-index:', datePickerModal.style.zIndex);
           console.log('Modal has is-open class:', datePickerModal.classList.contains('is-open'));
+          console.log('Modal computed style:', window.getComputedStyle(datePickerModal).display);
         }
 
         function closeDatePicker() {
