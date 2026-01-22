@@ -517,7 +517,7 @@
           <div id="accounting-content" style="display: none;">
             <!-- Date Range and Export Buttons -->
             <section class="flex items-center justify-between mb-6">
-              <button type="button" id="date-picker-btn-2" onclick="window.openDatePicker && window.openDatePicker('2'); return false;" class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors cursor-pointer">
+              <button type="button" id="date-picker-btn-2" class="bg-[#fafafa] border border-[#f5f5f5] flex items-center gap-2 px-4 py-3 rounded-lg text-base font-medium text-[#737375] hover:bg-[#f5f5f5] transition-colors cursor-pointer">
                 <span id="date-display-2" class="pointer-events-none">Sep 9, 2024 - Sep 15, 2024</span>
                 <i class="fas fa-calendar text-base pointer-events-none"></i>
               </button>
@@ -1446,41 +1446,20 @@
         const endDateInput = document.getElementById('end-date');
 
         function openDatePicker(targetId) {
-          console.log('openDatePicker called with targetId:', targetId);
           if (!datePickerModal) {
             console.error('Date picker modal not found');
             return;
           }
-          console.log('Date picker modal found, opening...');
           currentDatePickerTarget = targetId;
-          
-          // Remove any blocking inline styles
-          datePickerModal.style.removeProperty('display');
-          datePickerModal.style.removeProperty('opacity');
-          datePickerModal.style.removeProperty('pointer-events');
-          
-          // Set display first
           datePickerModal.style.display = 'flex';
           datePickerModal.classList.add('is-open');
-          
-          // Use setTimeout to ensure CSS class takes effect
-          setTimeout(() => {
-            datePickerModal.style.opacity = '1';
-            datePickerModal.style.pointerEvents = 'auto';
-          }, 10);
-          
-          // Prevent body scroll
           document.body.classList.add('modal-open');
           document.body.style.overflow = 'hidden';
-          
-          console.log('Modal opened - display:', datePickerModal.style.display);
-          console.log('Modal computed display:', window.getComputedStyle(datePickerModal).display);
-          console.log('Modal computed opacity:', window.getComputedStyle(datePickerModal).opacity);
         }
 
         function closeDatePicker() {
           if (!datePickerModal) return;
-          datePickerModal.style.cssText = 'display: none !important;';
+          datePickerModal.style.display = 'none';
           datePickerModal.classList.remove('is-open');
           document.body.classList.remove('modal-open');
           document.body.style.overflow = '';
@@ -1530,13 +1509,7 @@
             e.preventDefault();
             e.stopPropagation();
             console.log('Date picker button 1 clicked');
-            console.log('Calling openDatePicker function...');
-            console.log('openDatePicker available:', typeof openDatePicker);
-            if (typeof openDatePicker === 'function') {
-              openDatePicker('1');
-            } else {
-              console.error('openDatePicker is not a function:', typeof openDatePicker);
-            }
+            openDatePicker('1');
           });
         } else {
           console.error('Date picker button 1 not found');
