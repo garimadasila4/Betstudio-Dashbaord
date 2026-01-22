@@ -1477,9 +1477,14 @@
         function closeDatePicker() {
           if (!datePickerModal) return;
           datePickerModal.style.display = 'none';
+          datePickerModal.style.visibility = 'hidden';
+          datePickerModal.style.opacity = '0';
+          datePickerModal.style.pointerEvents = 'none';
           datePickerModal.classList.remove('is-open');
           document.body.classList.remove('modal-open');
           document.body.style.overflow = '';
+          document.body.style.overflowX = '';
+          document.body.style.overflowY = '';
           currentDatePickerTarget = null;
         }
 
