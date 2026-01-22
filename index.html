@@ -1450,10 +1450,30 @@
         }
         console.log('Opening date picker for target:', targetId);
         currentDatePickerTarget = targetId;
+        
+        // Close any other open modals first
+        const allModals = document.querySelectorAll('[id$="-modal"]');
+        allModals.forEach(modal => {
+          if (modal.id !== 'date-picker-modal' && modal.style.display !== 'none') {
+            modal.style.display = 'none';
+            modal.classList.remove('is-open');
+          }
+        });
+        
+        // Close bonus dropdown if open
+        const bonusDropdown = document.getElementById('bonus-type-dropdown');
+        if (bonusDropdown && !bonusDropdown.classList.contains('hidden')) {
+          bonusDropdown.classList.add('hidden');
+        }
+        
+        // Show the modal
         datePickerModal.style.display = 'flex';
+        datePickerModal.style.opacity = '1';
+        datePickerModal.style.pointerEvents = 'auto';
         datePickerModal.classList.add('is-open');
         document.body.classList.add('modal-open');
         document.body.style.overflow = 'hidden';
+        console.log('Date picker modal should be visible now. Display:', datePickerModal.style.display, 'Opacity:', datePickerModal.style.opacity);
       };
 
       window.closeDatePicker = function() {
