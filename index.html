@@ -1530,13 +1530,16 @@
         console.log('datePickerModal found:', !!datePickerModal);
         
         if (datePickerBtn1) {
-          // Also attach via addEventListener as backup
           datePickerBtn1.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Date picker button 1 clicked via addEventListener');
-            openDatePicker('1');
-          }, true); // Use capture phase
+            console.log('Date picker button 1 clicked');
+            try {
+              openDatePicker('1');
+            } catch (error) {
+              console.error('Error opening date picker:', error);
+            }
+          });
         } else {
           console.error('Date picker button 1 not found');
         }
