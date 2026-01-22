@@ -244,12 +244,45 @@
               <span class="hidden sm:inline">Date Today</span>
               <span class="sm:hidden">Today</span>
             </button>
-            <button class="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-xs sm:text-sm hover:bg-slate-50 transition-colors whitespace-nowrap w-full sm:w-auto justify-center sm:justify-start">
-              <i class="fas fa-calendar-check text-sm sm:text-base"></i>
-              <span class="hidden lg:inline">Wallet type filter Bonus</span>
-              <span class="lg:hidden hidden sm:inline">Filter Bonus</span>
-              <span class="sm:hidden">Filter</span>
-            </button>
+            <!-- Bonus Type Filter Dropdown -->
+            <div class="relative w-full sm:w-auto">
+              <button id="bonus-type-btn" class="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-[rgba(0,0,0,0.1)] bg-white text-xs sm:text-sm hover:bg-slate-50 transition-colors whitespace-nowrap w-full sm:w-auto justify-center sm:justify-start" onclick="toggleBonusDropdown()">
+                <i class="fas fa-calendar-check text-sm sm:text-base"></i>
+                <span id="bonus-type-text" class="hidden lg:inline">Wallet type filter Bonus</span>
+                <span id="bonus-type-text-tablet" class="lg:hidden hidden sm:inline">Filter Bonus</span>
+                <span id="bonus-type-text-mobile" class="sm:hidden">Filter</span>
+                <i class="fas fa-chevron-down text-xs ml-1"></i>
+              </button>
+              <!-- Dropdown Menu -->
+              <div id="bonus-type-dropdown" class="hidden absolute top-full left-0 mt-2 w-full sm:w-[200px] bg-white border border-[rgba(0,0,0,0.1)] rounded-lg shadow-lg z-50 overflow-hidden">
+                <div class="py-1">
+                  <button class="w-full text-left px-4 py-2 text-sm text-[#111827] hover:bg-[#f9fafb] transition-colors flex items-center justify-between" onclick="selectBonusType('All Bonus Types')">
+                    <span>All Bonus Types</span>
+                    <i class="fas fa-check text-[#2563eb] hidden" id="check-all"></i>
+                  </button>
+                  <button class="w-full text-left px-4 py-2 text-sm text-[#111827] hover:bg-[#f9fafb] transition-colors flex items-center justify-between" onclick="selectBonusType('Welcome Bonus')">
+                    <span>Welcome Bonus</span>
+                    <i class="fas fa-check text-[#2563eb] hidden" id="check-welcome"></i>
+                  </button>
+                  <button class="w-full text-left px-4 py-2 text-sm text-[#111827] hover:bg-[#f9fafb] transition-colors flex items-center justify-between" onclick="selectBonusType('Deposit Bonus')">
+                    <span>Deposit Bonus</span>
+                    <i class="fas fa-check text-[#2563eb] hidden" id="check-deposit"></i>
+                  </button>
+                  <button class="w-full text-left px-4 py-2 text-sm text-[#111827] hover:bg-[#f9fafb] transition-colors flex items-center justify-between" onclick="selectBonusType('Reload Bonus')">
+                    <span>Reload Bonus</span>
+                    <i class="fas fa-check text-[#2563eb] hidden" id="check-reload"></i>
+                  </button>
+                  <button class="w-full text-left px-4 py-2 text-sm text-[#111827] hover:bg-[#f9fafb] transition-colors flex items-center justify-between" onclick="selectBonusType('Cashback Bonus')">
+                    <span>Cashback Bonus</span>
+                    <i class="fas fa-check text-[#2563eb] hidden" id="check-cashback"></i>
+                  </button>
+                  <button class="w-full text-left px-4 py-2 text-sm text-[#111827] hover:bg-[#f9fafb] transition-colors flex items-center justify-between" onclick="selectBonusType('Referral Bonus')">
+                    <span>Referral Bonus</span>
+                    <i class="fas fa-check text-[#2563eb] hidden" id="check-referral"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
             <!-- Statistics/Accounting Toggle -->
             <div class="bg-[#f4f4f5] flex items-center p-1 rounded-md h-10 w-full sm:w-auto ml-0 sm:ml-auto" id="stats-accounting-toggle">
               <button class="bg-white px-2 sm:px-3 py-1.5 rounded shadow-sm text-xs sm:text-sm font-medium text-[#18181b] h-8 toggle-btn active" data-tab="statistics">
@@ -1511,6 +1544,76 @@
           sidebar.classList.toggle('-translate-x-full');
         }
       }
+
+      // Bonus Type Dropdown
+      let selectedBonusType = 'All Bonus Types';
+      
+      function toggleBonusDropdown() {
+        const dropdown = document.getElementById('bonus-type-dropdown');
+        if (dropdown) {
+          dropdown.classList.toggle('hidden');
+        }
+      }
+
+      function selectBonusType(type) {
+        selectedBonusType = type;
+        
+        // Update button text
+        const textElements = {
+          desktop: document.getElementById('bonus-type-text'),
+          tablet: document.getElementById('bonus-type-text-tablet'),
+          mobile: document.getElementById('bonus-type-text-mobile')
+        };
+        
+        const displayText = type === 'All Bonus Types' ? 'Wallet type filter Bonus' : type;
+        const shortText = type === 'All Bonus Types' ? 'Filter Bonus' : type.replace(' Bonus', '');
+        const mobileText = type === 'All Bonus Types' ? 'Filter' : type.split(' ')[0];
+        
+        if (textElements.desktop) textElements.desktop.textContent = displayText;
+        if (textElements.tablet) textElements.tablet.textContent = shortText;
+        if (textElements.mobile) textElements.mobile.textContent = mobileText;
+        
+        // Update checkmarks
+        document.querySelectorAll('#bonus-type-dropdown i.fa-check').forEach(check => {
+          check.classList.add('hidden');
+        });
+        
+        const checkMap = {
+          'All Bonus Types': 'check-all',
+          'Welcome Bonus': 'check-welcome',
+          'Deposit Bonus': 'check-deposit',
+          'Reload Bonus': 'check-reload',
+          'Cashback Bonus': 'check-cashback',
+          'Referral Bonus': 'check-referral'
+        };
+        
+        const checkId = checkMap[type];
+        if (checkId) {
+          const checkElement = document.getElementById(checkId);
+          if (checkElement) {
+            checkElement.classList.remove('hidden');
+          }
+        }
+        
+        // Close dropdown
+        const dropdown = document.getElementById('bonus-type-dropdown');
+        if (dropdown) {
+          dropdown.classList.add('hidden');
+        }
+        
+        // Here you can add logic to filter data based on selected bonus type
+        console.log('Selected bonus type:', type);
+      }
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        const bonusBtn = document.getElementById('bonus-type-btn');
+        const dropdown = document.getElementById('bonus-type-dropdown');
+        
+        if (bonusBtn && dropdown && !bonusBtn.contains(event.target) && !dropdown.contains(event.target)) {
+          dropdown.classList.add('hidden');
+        }
+      });
       
       // Close sidebar when clicking outside on mobile
       document.addEventListener('click', function(event) {
