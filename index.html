@@ -1405,7 +1405,7 @@
     </div>
 
     <!-- Date Picker Modal -->
-    <div id="date-picker-modal" class="registered-modal fixed inset-0 z-[10000] flex items-center justify-center p-4" style="display: none; opacity: 0; pointer-events: none;">
+    <div id="date-picker-modal" class="registered-modal fixed inset-0 z-[10000] flex items-center justify-center p-4" style="display: none;">
       <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" onclick="closeDatePicker()"></div>
       <div class="modal-panel relative z-10 w-full max-w-md rounded-2xl border border-[#e5e7eb] bg-white shadow-2xl p-6">
         <div class="flex items-center justify-between mb-6">
@@ -1454,37 +1454,27 @@
           console.log('Date picker modal found, opening...');
           currentDatePickerTarget = targetId;
           
-          // Force show the modal
-          datePickerModal.style.display = 'flex';
-          datePickerModal.style.visibility = 'visible';
-          datePickerModal.style.opacity = '1';
-          datePickerModal.style.pointerEvents = 'auto';
-          datePickerModal.style.zIndex = '10000';
+          // Remove inline style that might be blocking
+          datePickerModal.removeAttribute('style');
+          
+          // Force show the modal with !important equivalent
+          datePickerModal.style.cssText = 'display: flex !important; opacity: 1 !important; pointer-events: auto !important; visibility: visible !important; z-index: 10000 !important;';
           datePickerModal.classList.add('is-open');
           
           // Prevent body scroll
           document.body.classList.add('modal-open');
           document.body.style.overflow = 'hidden';
           
-          console.log('Modal display:', datePickerModal.style.display);
-          console.log('Modal opacity:', datePickerModal.style.opacity);
-          console.log('Modal visibility:', datePickerModal.style.visibility);
-          console.log('Modal z-index:', datePickerModal.style.zIndex);
-          console.log('Modal has is-open class:', datePickerModal.classList.contains('is-open'));
-          console.log('Modal computed style:', window.getComputedStyle(datePickerModal).display);
+          console.log('Modal opened - display:', datePickerModal.style.display);
+          console.log('Modal computed display:', window.getComputedStyle(datePickerModal).display);
         }
 
         function closeDatePicker() {
           if (!datePickerModal) return;
-          datePickerModal.style.display = 'none';
-          datePickerModal.style.visibility = 'hidden';
-          datePickerModal.style.opacity = '0';
-          datePickerModal.style.pointerEvents = 'none';
+          datePickerModal.style.cssText = 'display: none !important;';
           datePickerModal.classList.remove('is-open');
           document.body.classList.remove('modal-open');
           document.body.style.overflow = '';
-          document.body.style.overflowX = '';
-          document.body.style.overflowY = '';
           currentDatePickerTarget = null;
         }
 
