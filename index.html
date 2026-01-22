@@ -1634,9 +1634,10 @@
         }
       });
 
-      // GGR Chart
-      const ggrCtx = document.getElementById("ggrChart");
-      if (ggrCtx) {
+      // GGR Chart - Wait for DOM to be ready
+      document.addEventListener('DOMContentLoaded', function() {
+        const ggrCtx = document.getElementById("ggrChart");
+        if (ggrCtx) {
         new Chart(ggrCtx, {
           type: "line",
           data: {
@@ -1684,9 +1685,9 @@
         });
       }
 
-      // NGR Chart
-      const ngrCtx = document.getElementById("ngrChart");
-      if (ngrCtx) {
+        // NGR Chart
+        const ngrCtx = document.getElementById("ngrChart");
+        if (ngrCtx) {
         new Chart(ngrCtx, {
           type: "line",
           data: {
@@ -1732,7 +1733,8 @@
             },
           },
         });
-      }
+        }
+      });
 
       // Statistics/Accounting Toggle
       const toggleButtons = document.querySelectorAll('.toggle-btn');
