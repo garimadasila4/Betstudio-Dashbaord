@@ -1446,15 +1446,22 @@
         const endDateInput = document.getElementById('end-date');
 
         function openDatePicker(targetId) {
+          console.log('openDatePicker called with targetId:', targetId);
           if (!datePickerModal) {
             console.error('Date picker modal not found');
             return;
           }
+          console.log('Date picker modal found, opening...');
           currentDatePickerTarget = targetId;
           datePickerModal.style.display = 'flex';
+          datePickerModal.style.opacity = '1';
+          datePickerModal.style.pointerEvents = 'auto';
           datePickerModal.classList.add('is-open');
           document.body.classList.add('modal-open');
           document.body.style.overflow = 'hidden';
+          console.log('Modal display:', datePickerModal.style.display);
+          console.log('Modal opacity:', datePickerModal.style.opacity);
+          console.log('Modal has is-open class:', datePickerModal.classList.contains('is-open'));
         }
 
         function closeDatePicker() {
@@ -1509,7 +1516,13 @@
             e.preventDefault();
             e.stopPropagation();
             console.log('Date picker button 1 clicked');
-            openDatePicker('1');
+            console.log('Calling openDatePicker function...');
+            console.log('openDatePicker available:', typeof openDatePicker);
+            if (typeof openDatePicker === 'function') {
+              openDatePicker('1');
+            } else {
+              console.error('openDatePicker is not a function:', typeof openDatePicker);
+            }
           });
         } else {
           console.error('Date picker button 1 not found');
