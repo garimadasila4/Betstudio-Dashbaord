@@ -1508,12 +1508,19 @@
         const datePickerBtn2 = document.getElementById('date-picker-btn-2');
         
         if (datePickerBtn1) {
+          // Remove any existing onclick to avoid conflicts
+          datePickerBtn1.removeAttribute('onclick');
           datePickerBtn1.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log('Date picker button 1 clicked');
-            window.openDatePicker('1');
+            console.log('Date picker button 1 clicked - opening calendar');
+            if (window.openDatePicker) {
+              window.openDatePicker('1');
+            } else {
+              console.error('openDatePicker function not available');
+            }
           });
+          console.log('Date picker button 1 event listener attached');
         } else {
           console.error('Date picker button 1 not found');
         }
