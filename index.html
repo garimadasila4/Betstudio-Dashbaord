@@ -1454,12 +1454,20 @@
           console.log('Date picker modal found, opening...');
           currentDatePickerTarget = targetId;
           
-          // Remove inline style that might be blocking
-          datePickerModal.removeAttribute('style');
+          // Remove any blocking inline styles
+          datePickerModal.style.removeProperty('display');
+          datePickerModal.style.removeProperty('opacity');
+          datePickerModal.style.removeProperty('pointer-events');
           
-          // Force show the modal with !important equivalent
-          datePickerModal.style.cssText = 'display: flex !important; opacity: 1 !important; pointer-events: auto !important; visibility: visible !important; z-index: 10000 !important;';
+          // Set display first
+          datePickerModal.style.display = 'flex';
           datePickerModal.classList.add('is-open');
+          
+          // Use setTimeout to ensure CSS class takes effect
+          setTimeout(() => {
+            datePickerModal.style.opacity = '1';
+            datePickerModal.style.pointerEvents = 'auto';
+          }, 10);
           
           // Prevent body scroll
           document.body.classList.add('modal-open');
@@ -1467,6 +1475,7 @@
           
           console.log('Modal opened - display:', datePickerModal.style.display);
           console.log('Modal computed display:', window.getComputedStyle(datePickerModal).display);
+          console.log('Modal computed opacity:', window.getComputedStyle(datePickerModal).opacity);
         }
 
         function closeDatePicker() {
